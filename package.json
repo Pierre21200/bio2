@@ -29,7 +29,7 @@
   },
   "scripts": {
     "start": "serve -s build",
-    "start-frontend": "PORT=3000 react-scripts build && react-scripts start",
+    "start-prod" : "npm install && serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

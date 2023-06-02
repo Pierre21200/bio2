@@ -60,6 +60,8 @@ function Form({ bio, rec, ora, com }) {
   function handlePostCom(body, e) {
     e.preventDefault(e);
     if (verifForm(body) && file) {
+      postDates(body);
+
       postComInfos(body, file, (com = true));
       setShowRecap(true);
     } else {
@@ -69,6 +71,8 @@ function Form({ bio, rec, ora, com }) {
   function handlePostRec(body, e) {
     e.preventDefault(e);
     if (verifForm(body) && file) {
+      postDates(body);
+
       postRecInfos(body, file, (rec = true));
       setShowRecap(true);
     } else {
@@ -78,6 +82,8 @@ function Form({ bio, rec, ora, com }) {
   function handlePostOra(body, e) {
     e.preventDefault(e);
     if (verifForm(body) && file) {
+      postDates(body);
+
       postOraInfos(body, file, (ora = true));
       setShowRecap(true);
     } else {

@@ -1,4 +1,5 @@
-const BACKEND_URL = process.env.BACKEND_URL;
+// Définir BACKEND_URL localement pour le développement
+const BACKEND_URL = "https://bioback.herokuapp.com";
 
 export async function fetchDatas(setDataBio, setDataCom, setDataOra, setDataRec, setDatas) {
   const token = localStorage.getItem("authToken");

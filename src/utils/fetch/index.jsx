@@ -1,3 +1,5 @@
+const BACKEND_URL = process.env.BACKEND_URL;
+
 export async function fetchDatas(setDataBio, setDataCom, setDataOra, setDataRec, setDatas) {
   const token = localStorage.getItem("authToken");
   try {
@@ -85,7 +87,7 @@ export async function getAllDates(setDates) {
 export async function postDates(body) {
 
   try {
-    const response = await fetch("http://localhost:8000/bioanimale/dates", {
+    const response = await fetch(BACKEND_URL + "/bioanimale/dates", {
       method: 'POST', headers: {
         'Content-type': 'application/json;charset=utf-8',
       },
@@ -99,7 +101,7 @@ export async function postDates(body) {
 export async function postBioInfos(body) {
 
   try {
-    const response = await fetch("http://localhost:8000/bioanimale/bioinfos", {
+    const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {
       method: 'POST', headers: {
         'Content-type': 'application/json;charset=utf-8',
       },
@@ -118,7 +120,7 @@ export async function postComInfos(body, file) {
   Object.keys(body).forEach((key) => formData.append(key, body[key]));
 
   try {
-    await fetch("http://localhost:8000/bioanimale/cominfos", {
+    await fetch(BACKEND_URL +"/bioanimale/cominfos", {
       method: "POST",
       body: formData,
     });
@@ -134,7 +136,7 @@ export async function postRecInfos(body, file) {
   formData.append("image", file);
   Object.keys(body).forEach((key) => formData.append(key, body[key]));
   try {
-    await fetch("http://localhost:8000/bioanimale/recinfos", {
+    await fetch(BACKEND_URL +"/bioanimale/recinfos", {
       method: "POST",
      
       body: formData,
@@ -152,7 +154,7 @@ export async function postOraInfos(body, file) {
   Object.keys(body).forEach((key) => formData.append(key, body[key]));
 
   try {
-    await fetch("http://localhost:8000/bioanimale/orainfos", {
+    await fetch(BACKEND_URL +"/bioanimale/orainfos", {
       method: "POST",
      
       body: formData,
@@ -172,7 +174,7 @@ export async function changeRdv(body) {
 
   if (body.category === 'bio') {
     try {
-      const response = await fetch("http://localhost:8000/bioanimale/bioinfos", {
+      const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -194,7 +196,7 @@ export async function changeRdv(body) {
 
   if (body.category === 'com') {
     try {
-      const response = await fetch("http://localhost:8000/bioanimale/cominfos", {
+      const response = await fetch(BACKEND_URL +"/bioanimale/cominfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -214,7 +216,7 @@ export async function changeRdv(body) {
     }
   } if (body.category === 'rec') {
     try {
-      const response = await fetch("http://localhost:8000/bioanimale/recinfos", {
+      const response = await fetch(BACKEND_URL +"/bioanimale/recinfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -237,7 +239,7 @@ export async function changeRdv(body) {
 
   if (body.category === 'ora') {
     try {
-      const response = await fetch("http://localhost:8000/bioanimale/orainfos", {
+      const response = await fetch(BACKEND_URL +"/bioanimale/orainfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -266,7 +268,7 @@ export async function changePay(body) {
   const data = { id: body._id, category: body.category, pay: true };
   if (body.category === 'bio') {
     try {
-      const response = await fetch("http://localhost:8000/bioanimale/bioinfos", {
+      const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -287,7 +289,7 @@ export async function changePay(body) {
   }
   if (body.category === 'ora') {
     try {
-      const response = await fetch("http://localhost:8000/bioanimale/orainfos", {
+      const response = await fetch(BACKEND_URL +"/bioanimale/orainfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -307,7 +309,7 @@ export async function changePay(body) {
     }
   } if (body.category === 'com') {
     try {
-      const response = await fetch("http://localhost:8000/bioanimale/cominfos", {
+      const response = await fetch(BACKEND_URL +"/bioanimale/cominfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -327,7 +329,7 @@ export async function changePay(body) {
     }
   } if (body.category === 'rec') {
     try {
-      const response = await fetch("http://localhost:8000/bioanimale/recinfos", {
+      const response = await fetch(BACKEND_URL +"/bioanimale/recinfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -364,7 +366,7 @@ export async function deleteInfos(body) {
       path = 'orainfos'
     }
 
-    const response = await fetch(`http://localhost:8000/bioanimale/${path}`, {
+    const response = await fetch(BACKEND_URL + `/bioanimale/${path}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -386,7 +388,7 @@ export async function deleteInfos(body) {
 
 export async function signUser(body) {
   try {
-    const response = await fetch(`http://localhost:8000/bioanimale/signup`, {
+    const response = await fetch(BACKEND_URL +`/bioanimale/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -400,7 +402,7 @@ export async function signUser(body) {
 
 export async function logUser(body, setAuth) {
   try {
-    const response = await fetch(`http://localhost:8000/bioanimale/login`, {
+    const response = await fetch(BACKEND_URL +`/bioanimale/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",

@@ -4,25 +4,25 @@ export async function fetchDatas(setDataBio, setDataCom, setDataOra, setDataRec,
   const token = localStorage.getItem("authToken");
   try {
     const [bioResponse, comResponse, oraResponse, recResponse] = await Promise.all([
-      fetch("http://localhost:8000/bioanimale/bioinfos", {
+      fetch(BACKEND_URL + "/bioanimale/bioinfos", {
         headers: {
           "Content-Type": "application/json;charset=utf-8",
           "Authorization": "Bearer " + token // Ajout du token dans les en-têtes
         },
       }),
-      fetch("http://localhost:8000/bioanimale/cominfos", {
+      fetch(BACKEND_URL + "/bioanimale/cominfos", {
         headers: {
           "Content-Type": "application/json;charset=utf-8",
           "Authorization": "Bearer " + token // Ajout du token dans les en-têtes
         },
       }),
-      fetch("http://localhost:8000/bioanimale/orainfos", {
+      fetch(BACKEND_URL + "/bioanimale/orainfos", {
         headers: {
           "Content-Type": "application/json;charset=utf-8",
           "Authorization": "Bearer " + token // Ajout du token dans les en-têtes
         },
       }),
-      fetch("http://localhost:8000/bioanimale/recinfos", {
+      fetch(BACKEND_URL + "/bioanimale/recinfos", {
         headers: {
           "Content-Type": "application/json;charset=utf-8",
           "Authorization": "Bearer " + token // Ajout du token dans les en-têtes
@@ -54,7 +54,7 @@ export async function fetchDatas(setDataBio, setDataCom, setDataOra, setDataRec,
 
 export async function getAllDates(setDates) {
   try {
-    const response = await fetch('http://localhost:8000/bioanimale/dates', {
+    const response = await fetch(BACKEND_URL + '/bioanimale/dates', {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },

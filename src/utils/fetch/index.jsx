@@ -354,8 +354,10 @@ export async function changePay(body) {
 export async function deleteInfos(body) {
   
   const token = localStorage.getItem("authToken");
-  const data = { id: body._id, category: body.category }
+  const data = { id: body._id, category: body.category };
   var path = ''
+
+
   try {
     if (data.category === 'bio') {
       path = 'bioinfos'
@@ -375,6 +377,9 @@ export async function deleteInfos(body) {
       },
       body: JSON.stringify(data),
     });
+   
+    
+
 
     if (response.ok) {
       console.log("infos supprimés avec succès !");
@@ -384,8 +389,30 @@ export async function deleteInfos(body) {
     }
 
   } catch { }
+
+  
 }
 
+
+export async function deleteDate(body) {
+  const token = localStorage.getItem("authToken");
+  console.log(body)
+
+  try {
+    await fetch(`http://localhost:8000/bioanimale/dates`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        "Authorization": "Bearer " + token // Ajout du token dans les en-têtes
+      },
+      body: JSON.stringify(body),
+    });
+  }
+  catch (e) {
+    console.log(e)
+  }
+
+}
 
 export async function signUser(body) {
   try {

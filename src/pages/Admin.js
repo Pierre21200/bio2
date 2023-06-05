@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { StateContext } from "../utils/context/injex";
 import "react-datepicker/dist/react-datepicker.css";
 import Card from "../components/Admin/Card";
-import { fetchDatas, deleteInfos } from "../utils/fetch";
+import { fetchDatas, deleteInfos, deleteDate } from "../utils/fetch";
 import Calendar from "../components/Admin/Calendar";
 import Login from "../components/Admin/Login";
 // import Signup from "../components/Admin/Signup";
@@ -158,6 +158,7 @@ function Admin() {
   function handleConfirmDelete() {
     document.getElementById("modal").style.display = "none";
     deleteInfos(itemToDelete);
+    deleteDate(itemToDelete);
     setItemToDelete(null);
     setConfirmed(!confirmed);
     setModalActive(false);

@@ -1085,6 +1085,9 @@ cursor: pointer;
   }
 
   .navbar-dropdown {
+    position: absolute;
+    top: 5px;
+    left: 5px;
     visibility: visible;
     display: block;
     border: 2px solid var(--color-text);

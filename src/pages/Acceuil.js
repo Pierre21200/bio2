@@ -509,6 +509,11 @@ function Acceuil() {
           </Link>
         </div>
       </div>
+      <div className="politic-link-container">
+        <Link to={"/politique-de-confidentialité"}>
+          <p>Politique de confidentialité</p>
+        </Link>
+      </div>
     </div>
   );
 }

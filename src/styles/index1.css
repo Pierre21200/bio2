@@ -1461,3 +1461,26 @@ label {
 }
 
 }
+
+
+
+
+.politic-text  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 50px;
+  font-size: 25px;
+  font-family: 'garamond', sans-serif;
+  line-height: 35px;
+}
+
+.politic-link-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

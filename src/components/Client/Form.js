@@ -682,6 +682,11 @@ function Form({ bio, rec, ora, com }) {
             <FontAwesomeIcon icon={faEnvelope} size="2x" />
           </Link>
         </div>
+        <div className="politic-link-container">
+          <Link to={"/politique-de-confidentialité"}>
+            <p>Politique de confidentialité</p>
+          </Link>
+        </div>
       </div>
     );
   }

@@ -352,9 +352,9 @@ export async function changePay(body) {
 }
 
 export async function deleteInfos(body) {
+  
   const token = localStorage.getItem("authToken");
-  const data = { id: body._id, category: body.category }
-
+  const data = { id: body._id, category: body.category, date : body.date }
   var path = ''
   try {
     if (data.category === 'bio') {

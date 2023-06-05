@@ -28,6 +28,7 @@
     "serve": "^14.2.0"
   },
   "scripts": {
+    "start-dev" :"react-scripts start",
     "start": "serve -s build",
     "start-prod" : "npm install && serve -s build",
     "build": "react-scripts build",

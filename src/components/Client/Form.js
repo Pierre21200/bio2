@@ -137,20 +137,20 @@ function Form({ bio, rec, ora, com }) {
             <h3>Comment se déroule la séance</h3>
           </div>
           <p>
-            Paragraphe du déroulé de la séance, le tarif, la réservation, la
-            date, du retour mail, du paiement et de la confirmation, du retour
-            de ta part et de ton bilan etc Bien rassuré le client sur tout.{" "}
-            Paragraphe du déroulé de la séance, le tarif, la réservation, la
-            date, du retour mail, du paiement et de la confirmation, du retour
-            de ta part et de ton bilan etc Bien rassuré le client sur tout.
-            Paragraphe du déroulé de la séance, le tarif, la réservation, la
-            date, du retour mail, du paiement et de la confirmation, du retour
-            de ta part et de ton bilan etc Bien rassuré le client sur tout.{" "}
-            Paragraphe du déroulé de la séance, le tarif, la réservation, la
-            date, du retour mail, du paiement et de la confirmation, du retour
-            de ta part et de ton bilan etc Bien rassuré le client sur tout.
+            Je pratique la biorésonance d’après Paul Schmidt en Cote d’Or (21)
+            sur tout type d’animaux. Vous pouvez donc choisir le jour de la
+            séance en fonction des disponibilité sur ce calendrier. J’ai besoin
+            d’informations concernant les raisons de la prise de rendez vous et
+            quelques informations sur la vie de votre animal pour pouvoir vous
+            apporter une efficacité optimale le jour de la séance et perdre le
+            moins de temps possible. Si vous habitez plus loin et que vous
+            souhaitez que je me déplace, il est possible d’organiser une ou
+            plusieurs journées avec d’autres animaux de votre secteur (minimum 3
+            participants). Les frais de déplacement seront à ma charge.<br></br>
+            Si vous êtes partant pour cette belle aventure, je vous invite à
+            remplir ce formulaire !
           </p>
-          <p>Tarif : 1000 euros</p>
+          <p>Tarif : 75 euros + frais de déplacement</p>
         </div>
         <form
           className="bioform"
@@ -290,10 +290,21 @@ function Form({ bio, rec, ora, com }) {
         <div className="contact-presentation">
           <h2>La Communication Animale</h2>
           <p>
-            Paragraphe du déroulé de la séance, le tarif, la réservation, la
-            date, du retour mail, du paiement et de la confirmation, du retour
-            de ta part et de ton bilan etc Bien rassuré le client sur tout
+            Sans donner de détails pour que je sois le moins influencé possible,
+            vous pouvez écrire les questions , les messages ou les
+            interrogations que vous avez à propos de votre animal. Il est
+            possible de communiquer avec tout type d’animaux ! Je pratique à
+            distance, vous pouvez donc choisir le jour de la communication : Un
+            jour où l’animal est au calme de préférence sans perturbation (
+            éviter les journées où vous avez des invités, où vous faites une
+            grande balade, où vous déménagez par exemple...). Je reste connectée
+            toute la journée de la séance pour recevoir d'autres informations si
+            l'animal le souhaite. Je rédige ensuite un compte rendu qui vous
+            sera transmis en PDF sur votre adresse mail.<br></br>Si vous êtes
+            partant pour cette belle aventure, je vous invite à remplir ce
+            formulaire !
           </p>
+          <p>Tarif : 50 euros</p>
         </div>
         <form
           className="comform"
@@ -409,10 +420,18 @@ function Form({ bio, rec, ora, com }) {
         <div className="contact-presentation">
           <h2>La Recherche Animale</h2>
           <p>
-            Paragraphe du déroulé de la séance, le tarif, la réservation, la
-            date, du retour mail, du paiement et de la confirmation, du retour
-            de ta part et de ton bilan etc Bien rassuré le client sur tout
+            Je pratique à distance et sur tout type d’animaux ! Pendant cette
+            séance j’utilise mon pendule, mes oracles et une carte imprimée du
+            lieu où l’animal à disparu. Je communique également avec lui pour
+            avoir toutes les informations possibles. Je reste connectée toute la
+            journée de la séance pour recevoir d'autres informations si l'animal
+            le souhaite. Je rédige ensuite un compte rendu contenant les détails
+            que j’ai pu recevoir pour le retrouver. Ce document vous sera
+            transmis rapidement en PDF sur votre adresse mail.<br></br>
+            Si vous souhaitez que je vous aide à retrouver votre animal égaré,
+            je vous laisse remplir le formulaire.
           </p>
+          <p>Tarif : 50 euros</p>
         </div>
         <form
           className="recform"
@@ -547,12 +566,20 @@ function Form({ bio, rec, ora, com }) {
         <Navbar></Navbar>
 
         <div className="contact-presentation">
-          <h2>La Recherche Animale</h2>
+          <h2>
+            La Lecture d<span>'</span>Oracle
+          </h2>
           <p>
-            Paragraphe du déroulé de la séance, le tarif, la réservation, la
-            date, du retour mail, du paiement et de la confirmation, du retour
-            de ta part et de ton bilan etc Bien rassuré le client sur tout
+            Sans donner de détails pour que je sois le moins influencé possible,
+            vous pouvez écrire jusqu’à 3 questions ou interrogations que vous
+            avez à propos de votre animal. Je pratique à distance, vous pouvez
+            donc choisir le jour de la communication. Je vous transmet ensuite
+            une photo des cartes tirées, une belle explication de chaque carte
+            et une réponse pour chacune de vos questions sur votre adresse mail.
+            <br></br>Si vous êtes partant pour cette belle aventure, je vous
+            invite à remplir ce formulaire !
           </p>
+          <p>Tarif : 15 euros</p>
         </div>
         <form
           className="oraform"

@@ -38,8 +38,8 @@ function Acceuil() {
       <div className=" first-sight-container" id="first-sight">
         <div className="first-sight-content first-sight-left-content"></div>
         <div className="first-sight-content first-sight-right-content">
-          <h1 className="hero first-text">ÉNERGIE ANIMALE</h1>
-          <h1 className="garamond second-text">l'écoute animale</h1>
+          <h2 className="hero first-text">ÉNERGIE ANIMALE</h2>
+          <h2 className="garamond second-text">l'écoute animale</h2>
           <h1 className="seasons third-text">
             COMMUNICATION ANIMALE <br />
             ET
@@ -60,27 +60,26 @@ function Acceuil() {
       </div>
 
       <div className="second-sight">
-        <img src={flower2} alt="flower" className="flower2" />
-        {/* <img src={flower1} alt="flower" className="flower1" /> */}
-        <img src={flower3} alt="flower" className="flower3" />
+        <img src={flower2} alt="flower-decoration" className="flower2" />
+        <img src={flower3} alt="flower-decoration" className="flower3" />
 
         <h2 className="first-text seasons">
           VOUS AIDER A COMPRENDRE VOTRE ANIMAL
         </h2>
         <p className="second-text garamond">
           Comment puis je vous aider ?<br /> Vous souhaitez lui transmettre un
-          message ? Lui poser des questions ? Connaître le ressentie sur son
-          état de santé physique et émotionnel ? Ce qu’il souhaiterait avoir
-          dans sa vie ? Renforcer le lien avec lui ? Avoir des pistes sur des
-          problèmes de comportement ? L’arrivé d’un nouveau congénère ? Ce qu’il
-          lui plaît ou ce qu’il ne veut pas ? S’il est heureux ? Avoir son
-          message ? Le préparer à un déménagement ou à un changement dans sa
-          vie ? Connaître son passé ? Ce qu’il peut vous apporter ? Pourquoi
-          a-t-il un comportement répétitif ? Retrouver votre animal égaré ?
-          Accompagner l’énergie pour affronter des maux et des pathologies
-          (biorésonance) ? Toutes les questions qui sont importantes pour vous
-          peuvent être poser à votre animal. Je fais simplement l’intermédiaire.
-          C’est à lui de décider ensuite de ce qu’il veut vous transmettre !
+          message ? Lui poser des questions ? Connaître le ressentie sur son
+          état de santé physique et émotionnel ? Ce qu’il souhaiterait avoir
+          dans sa vie ? Renforcer le lien avec lui ? Avoir des pistes sur des
+          problèmes de comportement ? L’arrivé d’un nouveau congénère ? Ce qu’il
+          lui plaît ou ce qu’il ne veut pas ? S’il est heureux ? Avoir son
+          message ? Le préparer à un déménagement ou à un changement dans sa vie
+          ? Connaître son passé ? Ce qu’il peut vous apporter ? Pourquoi a-t-il
+          un comportement répétitif ? Retrouver votre animal égaré ? Accompagner
+          l’énergie pour affronter des maux et des pathologies (biorésonance) ?
+          Toutes les questions qui sont importantes pour vous peuvent être poser
+          à votre animal. Je fais simplement l’intermédiaire. C’est à lui de
+          décider ensuite de ce qu’il veut vous transmettre !
           <br />
           <br />
           <span>Morgane</span>

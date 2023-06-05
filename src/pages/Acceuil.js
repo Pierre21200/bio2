@@ -110,13 +110,13 @@ function Acceuil() {
               et émotionnelle ?
             </p>
           </div>
+        </div>
+        <div className="second-line">
           <div onClick={() => setAnchor("rec")} className="acceuil-rec">
             <img src={litleRec} alt="outilsRecherche"></img>
             <h2>Recherche Animale</h2>
             <p>Votre animal s'est égaré ?</p>
           </div>
-        </div>
-        <div className="second-line">
           <div onClick={() => setAnchor("ora")} className="acceuil-ora">
             <img src={litleOra} alt="cartesOracle"></img>
             <h2>Lecture d'Oracle</h2>

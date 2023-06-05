@@ -692,10 +692,12 @@ function Form({ bio, rec, ora, com }) {
     return (
       <div className="confirmation">
         <Navbar></Navbar>
-        Votre demande de rendez-vous a bien été prise un compte. <br />
-        Un email de confirmation vous sera envoyé.
-        <br />
-        Si vous avez besoin, n'hésitez pas à me contacter sur ma page Facebook,
+        Vous êtes partis pour une belle aventure ! <br></br>
+        <br></br>
+        Je vous invite maintenant à patientez jusqu'à ce que je valide votre
+        formulaire. <br></br>Un mail de finalisation vous permettra de procéder
+        au réglement (Virement bancaire ou Paypal). <br></br> <br></br>Si vous
+        avez besoin, n'hésitez pas à me contacter sur ma page Facebook,
         Instagram, ou par Mail.
         <br />A bientôt !
         <div className="confirmation-icones-reseaux">

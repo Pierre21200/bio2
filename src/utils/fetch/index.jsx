@@ -1,5 +1,33 @@
+// Importer la bibliothèque Email.js
+import emailjs from 'emailjs-com';
 // Définir BACKEND_URL localement pour le développement
+
 const BACKEND_URL = "https://bioback.herokuapp.com";
+
+// Configurer les informations de connexion SMTP
+// const serviceID = 'service_dh6wbuu';
+// const templateID = 'template_0lv9fnp';
+// const publicKey = 'iG24iKfn71sEe52nR';
+
+// Fonction pour envoyer l'e-mail
+// const sendEmail = () => {
+//   const templateParams = {
+//     to_name: 'Pierre ',
+//     from_name: 'ENERGIE ANIMALE',
+//     message: 'Hello, this is a test email!',
+//   };
+
+//   emailjs.send(serviceID, templateID, templateParams, publicKey)
+//     .then((response) => {
+//       console.log('E-mail sent successfully:', response.status);
+//     })
+//     .catch((error) => {
+//       console.error('Error sending e-mail:', error);
+//     });
+// };
+
+
+
 
 export async function fetchDatas(setDataBio, setDataCom, setDataOra, setDataRec, setDatas) {
   const token = localStorage.getItem("authToken");
@@ -102,13 +130,17 @@ export async function postDates(body) {
 export async function postBioInfos(body) {
 
   try {
+
     const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {
       method: 'POST', headers: {
         'Content-type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify(body)
     });
-    await response.json();
+    await response.json(); 
+    // sendEmail();
+
+
   } catch (error) {
     console.log(error);
   }

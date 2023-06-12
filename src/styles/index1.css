@@ -376,6 +376,8 @@ font-weight: bold;
  flex-direction: row;
  min-height: 100vh;
  background-color: var(--color-background);
+ padding-top: 30px;
+ color: var(--color-text);
 }
 
 .acceuil-presentation-content .img-container {

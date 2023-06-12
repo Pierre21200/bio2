@@ -39,7 +39,7 @@ function Recherche() {
             des images ou des sons qui permettrait de le retrouver.
           </p>
           <Link to={"/recherche-animale/rendez-vous"}>
-            <button>PRENDRE RENDEZ-VOUS</button>
+            <button className="button-anim">PRENDRE RENDEZ-VOUS</button>
           </Link>{" "}
         </div>
       </div>

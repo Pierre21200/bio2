@@ -69,7 +69,7 @@ function Oracle() {
             que l'animal n'a pas ou ne connaît pas.
           </p>
           <Link to={"/lecture-oracle/rendez-vous"}>
-            <button>PRENDRE RENDEZ-VOUS</button>
+            <button className="button-anim">PRENDRE RENDEZ-VOUS</button>
           </Link>
         </div>
         <div className="img-container"></div>

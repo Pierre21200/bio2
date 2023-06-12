@@ -271,7 +271,9 @@ function Form({ bio, rec, ora, com }) {
               : "Tous les champs sont requis"}
           </div>
           <div className="form-button-container">
-            <button type="submit">ENVOYER</button>
+            <button className="button-anim" type="submit">
+              ENVOYER
+            </button>
           </div>
         </form>
       </div>
@@ -401,7 +403,9 @@ function Form({ bio, rec, ora, com }) {
               : "Tous les champs sont requis"}
           </div>{" "}
           <div className="form-button-container">
-            <button type="submit">ENVOYER</button>
+            <button className="button-anim" type="submit">
+              ENVOYER
+            </button>
           </div>
         </form>
       </div>
@@ -549,7 +553,9 @@ function Form({ bio, rec, ora, com }) {
               : "Tous les champs sont requis"}
           </div>
           <div className="form-button-container">
-            <button type="submit">ENVOYER</button>
+            <button className="button-anim" type="submit">
+              ENVOYER
+            </button>
           </div>
         </form>
       </div>
@@ -680,7 +686,9 @@ function Form({ bio, rec, ora, com }) {
               : "Tous les champs sont requis"}
           </div>
           <div className="form-button-container">
-            <button type="submit">ENVOYER</button>
+            <button className="button-anim" type="submit">
+              ENVOYER
+            </button>
           </div>
         </form>
       </div>

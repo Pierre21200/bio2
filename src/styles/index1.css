@@ -88,7 +88,8 @@ a {
   transition: transform 0.3s;
 }
 .navbar-client div:hover {
-transform: scale(1.1);}
+transform: scale(1.1);
+}
 
 .navbar-dropdown {
   visibility: hidden;
@@ -165,6 +166,14 @@ transform: scale(1.1);}
   }
 }
 
+.button-anim {
+  animation: pulse 3s infinite;  
+}
+
+.button-anim:hover {
+  animation: pulse 3s infinite, colorChange 0.5s forwards;
+}  
+
 .first-sight-container button {
   background-color:transparent;
   cursor: pointer;
@@ -174,12 +183,9 @@ transform: scale(1.1);}
   top: 50vh;
   border: 2px solid var(--color-text) ;
   color: var(--color-text);
-  animation: pulse 3s infinite;
+  
 }
 
-.first-sight-container button:hover {
-  animation: pulse 3s infinite, colorChange 0.5s forwards;
-}
 
 
 /* secondSIGHT */
@@ -297,6 +303,8 @@ font-weight: bold;
 .third-sight .first-line div:hover, .third-sight .second-line div:hover{
   transform: scale(1.1); /* Applique une transformation d'échelle de 1.1 au survol de la souris */
 }
+
+
 
 .third-sight div {
   width: 45%;
@@ -543,6 +551,15 @@ margin: 0;
   font-family: 'Garamond', sans-serif;
   letter-spacing: 3px;
 }
+ #rdv p {
+  transition: transform 0.3s;
+ }
+
+ #rdv p:hover { transform: scale(1.1);
+}
+
+
+
 /* Acceuil Avis */
 .avis-container {
   display: flex;
@@ -1235,6 +1252,18 @@ cursor: pointer;
   #rdv .img-container {
     background-position: 0 0;
   }
+  .third-sight .first-line  {
+    flex-direction: column;
+  }
+  .third-sight .first-line div {
+    margin-bottom: 50px;
+  }
+  .third-sight .second-line {
+    flex-direction: column;
+  }
+  .third-sight .second-line div {
+    margin-bottom: 50px;
+  }
 }
 
 
@@ -1356,9 +1385,9 @@ cursor: pointer;
   justify-content: space-around;
  }
 
- .third-sight .first-line div {
+ /* .third-sight .first-line div {
   height: auto;
- }
+ } */
 
  .third-sight .first-line {
   padding-top: 50px 50px;

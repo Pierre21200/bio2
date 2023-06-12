@@ -42,7 +42,7 @@ function Acceuil() {
             <br /> BIORESONANCE
           </h1>
           <button
-            className="hero"
+            className="hero, button-anim"
             onClick={() =>
               window.scrollTo({
                 top: window.innerHeight,

@@ -97,7 +97,7 @@ function Bioresonance() {
             en meilleure santé.
           </p>
           <Link to={"/biorésonance/rendez-vous"}>
-            <button>PRENDRE RENDEZ-VOUS</button>
+            <button className="button-anim">PRENDRE RENDEZ-VOUS</button>
           </Link>
         </div>
         <div className="img-container"></div>

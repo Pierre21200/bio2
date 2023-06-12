@@ -67,7 +67,7 @@ function Communication() {
             votre animal de compagnie et en vous accompagnant sur ce chemin.
           </p>
           <Link to={"/communication-animale/rendez-vous"}>
-            <button>PRENDRE RENDEZ-VOUS</button>
+            <button className="button-anim">PRENDRE RENDEZ-VOUS</button>
           </Link>
         </div>
         <div className="img-container"></div>

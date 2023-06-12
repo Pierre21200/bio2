@@ -32,7 +32,6 @@ function convertDate(dateString) {
   return `${dayOfWeek} ${dayOfMonth} ${monthOfYear} ${year}`;
 }
 
-const BACKEND_URL = "https://bioback.herokuapp.com";
 
 // Configurer les informations de connexion SMTP
 const serviceIDtoAdmin = 'service_2ipacxo';

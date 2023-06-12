@@ -81,17 +81,17 @@ function Navbar({ admin, filter, setFilter, setShowCalendar, modalActive }) {
         <Link to="/">
           <div onClick={() => goToAnchor("first-sight")}>ACCEUIL</div>
         </Link>
-        <Link to="/">
-          <div onClick={() => goToAnchor("bio")}>BIORESONANCE</div>
+        <Link to="/biorésonance">
+          <div>BIORESONANCE</div>
         </Link>
-        <Link to="/">
-          <div onClick={() => goToAnchor("com")}>COMMUNICATION ANIMALE</div>
+        <Link to="/communication-animale">
+          <div>COMMUNICATION ANIMALE</div>
         </Link>
-        <Link to="/">
-          <div onClick={() => goToAnchor("rec")}>RECHERCHE ANIMALE</div>
+        <Link to="/recherche-animale">
+          <div>RECHERCHE ANIMALE</div>
         </Link>
-        <Link to="/">
-          <div onClick={() => goToAnchor("ora")}>LECTURE D'ORACLE</div>
+        <Link to="/lecture-oracle">
+          <div>LECTURE D'ORACLE</div>
         </Link>
         <Link to="/">
           <div onClick={() => goToAnchor("avis")}>AVIS</div>

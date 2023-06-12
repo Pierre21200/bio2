@@ -7,6 +7,10 @@ import { StateProvider } from "./utils/context/injex";
 import "./styles/index1.css";
 import Form from "./components/Client/Form";
 import Politic from "./pages/Politic";
+import Communciation from "./pages/Communication";
+import Bioresonance from "./pages/Bioresonance";
+import Recherche from "./pages/Recherche";
+import Oracle from "./pages/Oracle";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -18,10 +22,20 @@ root.render(
           <Routes>
             <Route exact path="/" element={<Acceuil />} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/biorésonance" element={<Form bio />} />
-            <Route path="/communication-animale" element={<Form com />} />
-            <Route path="/recherche-animale" element={<Form rec />} />
-            <Route path="/lecture-oracle" element={<Form ora />} />
+            <Route path="/biorésonance" element={<Bioresonance />} />
+            <Route path="/communication-animale" element={<Communciation />} />
+            <Route path="/recherche-animale" element={<Recherche />} />
+            <Route path="/lecture-oracle" element={<Oracle />} />
+            <Route path="/biorésonance/rendez-vous" element={<Form bio />} />
+            <Route
+              path="/communication-animale/rendez-vous"
+              element={<Form com />}
+            />
+            <Route
+              path="/recherche-animale/rendez-vous"
+              element={<Form rec />}
+            />
+            <Route path="/lecture-oracle/rendez-vous" element={<Form ora />} />
             <Route path="/politique-de-confidentialité" element={<Politic />} />
           </Routes>
         </React.Fragment>

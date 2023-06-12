@@ -302,8 +302,41 @@ font-weight: bold;
   width: 45%;
 }
 
+.third-sight .img-container {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.img-container-com {
+  background-image: url('../utils/img/litle-img-com.jpg');
+  background-size: cover;
+  background-position: -80px 0;
+}
+
+.img-container-bio {
+  background-image: url('../utils/img/litle-img-bio.JPG');
+  background-size: cover;
+  background-position: 0px -40px;
+}
+
+.img-container-rec {
+  background-image: url('../utils/img/litle-img-rec.jpg');
+  background-size: cover;
+  background-position: -80px 0;
+}
+
+.img-container-ora {
+  background-image: url('../utils/img/litle-img-ora.JPG');
+  background-size: cover;
+  background-position: -80px 0;
+}
+
 .third-sight img {
-  width: 40%;
+  width: 100%;
 }
 
 .third-sight h2 {
@@ -317,6 +350,10 @@ font-weight: bold;
 
 .acceuil-bio, .acceuil-com, .acceuil-rec, .acceuil-ora {
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Acceuil presentation */

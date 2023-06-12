@@ -286,8 +286,8 @@ function Form({ bio, rec, ora, com }) {
         <div className="contact-presentation">
           <h2>La Communication Animale</h2>
           <p>
-            Sans donner de détails pour que je sois le moins influencé possible,
-            vous pouvez écrire les questions , les messages ou les
+            Sans donner de détails pour que je sois le moins influencée
+            possible, vous pouvez écrire les questions , les messages ou les
             interrogations que vous avez à propos de votre animal. Il est
             possible de communiquer avec tout type d’animaux ! Je pratique à
             distance, vous pouvez donc choisir le jour de la communication : Un
@@ -566,12 +566,13 @@ function Form({ bio, rec, ora, com }) {
             La Lecture d<span>'</span>Oracle
           </h2>
           <p>
-            Sans donner de détails pour que je sois le moins influencé possible,
-            vous pouvez écrire jusqu’à 3 questions ou interrogations que vous
-            avez à propos de votre animal. Je pratique à distance, vous pouvez
-            donc choisir le jour de la communication. Je vous transmet ensuite
-            une photo des cartes tirées, une belle explication de chaque carte
-            et une réponse pour chacune de vos questions sur votre adresse mail.
+            Sans donner de détails pour que je sois le moins influencée
+            possible, vous pouvez écrire jusqu’à 3 questions ou interrogations
+            que vous avez à propos de votre animal. Je pratique à distance, vous
+            pouvez donc choisir le jour de la communication. Je vous transmet
+            ensuite une photo des cartes tirées, une belle explication de chaque
+            carte et une réponse pour chacune de vos questions sur votre adresse
+            mail.
             <br></br>Si vous êtes partant pour cette belle aventure, je vous
             invite à remplir ce formulaire !
           </p>

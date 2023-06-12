@@ -34,7 +34,7 @@ function Bioresonance() {
             Lors de la séance de biorésonance, l'animal est installé dans un
             endroit calme et je dépose une couverture sur son dos. Un câble
             relis l'appareil. Des signaux électromagnétiques non-invasifs (ondes
-            naturelles) sont envoyés et permet de mesurer les fréquences
+            naturelles) sont envoyés et permettent de mesurer les fréquences
             vibratoires du corps. <br />
             <br />
             Grâce à cet appareil programmé, je peux alors rééquilibrer ces

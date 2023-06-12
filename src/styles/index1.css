@@ -375,7 +375,7 @@ font-weight: bold;
  display: flex;
  flex-direction: row;
  min-height: 100vh;
-
+ background-color: var(--color-background);
 }
 
 .acceuil-presentation-content .img-container {
@@ -412,7 +412,7 @@ margin: 0;
   font-weight: normal;
 }
 
-.acceuil-presentation-container button {
+.acceuil-presentation-content button {
   background-color:transparent;
   cursor: pointer;
   padding: 15px;

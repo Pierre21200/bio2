@@ -59,9 +59,9 @@ function Communication() {
             de cet animal (propriétaire) pour m'autoriser à communiquer avec
             lui. <br />
             <br />
-            Après 5 ans d'expérience en communication animale, j'ai eu avoir la
-            chance de travailler avec de nombreuses espèces animales, que je
-            partage sur ma page Facebook. <br />
+            Après 5 ans d'expérience en communication animale, j'ai eu la chance
+            de travailler avec de nombreuses espèces animales, que je partage
+            sur ma page Facebook. <br />
             <br />
             Je propose une approche empathique en vous aidant à mieux comprendre
             votre animal de compagnie et en vous accompagnant sur ce chemin.

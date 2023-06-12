@@ -35,7 +35,7 @@ function convertDate(dateString) {
 const BACKEND_URL = "https://bioback.herokuapp.com";
 
 // Configurer les informations de connexion SMTP
-const serviceIDtoAdmin = 'service_dh6wbuu';
+const serviceIDtoAdmin = 'service_2ipacxo';
 const templateIDtoAdmin = 'template_0lv9fnp';
 const publicKeytoAdmin = 'iG24iKfn71sEe52nR';
 
@@ -94,7 +94,7 @@ const sendEmailToClient = (data, category) => {
     to_name: data.ownerName,
     to_email: data.mail,
     from_name: 'ENERGIE ANIMALE',
-    message: `Bonjour,\n\nVotre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé, nous revenons vers vous rapidement \n`,
+    message: `Bonjour,\n\nVotre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé. Nous traitons votre demande, vous recevrez prochainement un second mail contenant les informations de paiement. Le règlement doit etre impérativement effectué avant la date de rendez-vous. \n A bientôt ! \n`,
   };
 
   emailjs.send(serviceIDtoAdmin, templateIDtoClient, templateParams, publicKeytoAdmin)

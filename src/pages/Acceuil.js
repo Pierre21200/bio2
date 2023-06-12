@@ -213,7 +213,7 @@ function Acceuil() {
             </p>
             <p>
               Adresse Mail <br />
-              morgane.faucompre@gmail.com
+              communiquer.animaux@gmail.com
             </p>
           </div>
           <div className="contact-services">

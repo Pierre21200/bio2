@@ -28,10 +28,6 @@ function Form({ bio, rec, ora, com }) {
   const [warning, setWarning] = useState(false);
   const [file, setFile] = useState();
 
-  // useEffect(() => {
-  //   fetchDatas(setDataBio, setDataCom, setDataOra, setDataRec, setDatas);
-  // }, [setDataBio, setDataCom, setDataOra, setDataRec]);
-
   useEffect(() => {
     getAllDates(setDates);
   }, [dataBio, dataCom, dataOra, dataRec, setDates]);

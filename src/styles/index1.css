@@ -356,6 +356,13 @@ font-weight: bold;
   align-items: center;
 }
 
+.third-sight a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Acceuil presentation */
 .acceuil-presentation-container {
   width: 100%;

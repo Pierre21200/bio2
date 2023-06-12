@@ -1,30 +1,110 @@
-// Importer la bibliothèque Email.js
 import emailjs from 'emailjs-com';
-// Définir BACKEND_URL localement pour le développement
+
+function convertDate(dateString) {
+  const daysOfWeek = [
+    "Dimanche",
+    "Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi",
+  ];
+  const monthsOfYear = [
+    "Janvier",
+    "Février",
+    "Mars",
+    "Avril",
+    "Mai",
+    "Juin",
+    "Juillet",
+    "Août",
+    "Septembre",
+    "Octobre",
+    "Novembre",
+    "Décembre",
+  ];
+  const date = new Date(dateString);
+  const dayOfWeek = daysOfWeek[date.getDay()];
+  const dayOfMonth = ("0" + date.getDate()).slice(-2);
+  const monthOfYear = monthsOfYear[date.getMonth()];
+  const year = date.getFullYear();
+  return `${dayOfWeek} ${dayOfMonth} ${monthOfYear} ${year}`;
+}
 
 const BACKEND_URL = "https://bioback.herokuapp.com";
 
 // Configurer les informations de connexion SMTP
-// const serviceID = 'service_dh6wbuu';
-// const templateID = 'template_0lv9fnp';
-// const publicKey = 'iG24iKfn71sEe52nR';
+const serviceIDtoAdmin = 'service_dh6wbuu';
+const templateIDtoAdmin = 'template_0lv9fnp';
+const publicKeytoAdmin = 'iG24iKfn71sEe52nR';
+
+const templateIDtoClient = 'template_9ictspl';
+
 
 // Fonction pour envoyer l'e-mail
-// const sendEmail = () => {
-//   const templateParams = {
-//     to_name: 'Pierre ',
-//     from_name: 'ENERGIE ANIMALE',
-//     message: 'Hello, this is a test email!',
-//   };
+const sendEmailToAdmin = (data, category) => {
+  let cat = ''
+  if(category === 'bio') {
+    cat = 'Biorésonance'
+  }
+  if(category === 'com') {
+    cat = 'Communication Animale'
+  } if(category === 'rec') {
+    cat = 'Recherche Animale'
+  } if(category === 'ora') {
+    cat = `Lecture d'oracle`
+  }
 
-//   emailjs.send(serviceID, templateID, templateParams, publicKey)
-//     .then((response) => {
-//       console.log('E-mail sent successfully:', response.status);
-//     })
-//     .catch((error) => {
-//       console.error('Error sending e-mail:', error);
-//     });
-// };
+  const date = convertDate(data.date)
+
+  const templateParams = {
+    to_name: 'Pierre ',
+    from_name: 'ENERGIE ANIMALE',
+    to_email : '',
+    message: `Bonjour,\n\nVous avez une nouvelle demande de rendez-vous pour une séance de ${cat} dans votre espace administrateur pour la date du ${date} `,
+  };
+
+  emailjs.send(serviceIDtoAdmin, templateIDtoAdmin, templateParams, publicKeytoAdmin)
+    .then((response) => {
+      console.log('E-mail sent successfully:', response.status);
+    })
+    .catch((error) => {
+      console.error('Error sending e-mail:', error);
+    });
+};
+
+const sendEmailToClient = (data, category) => {
+  let cat = ''
+  if(category === 'bio') {
+    cat = 'Biorésonance'
+  }
+  if(category === 'com') {
+    cat = 'Communication Animale'
+  } if(category === 'rec') {
+    cat = 'Recherche Animale'
+  } if(category === 'ora') {
+    cat = `Lecture d'oracle`
+  }
+
+  const date = convertDate(data.date)
+
+
+  const templateParams = {
+    to_name: data.ownerName,
+    to_email: data.mail,
+    from_name: 'ENERGIE ANIMALE',
+    message: `Bonjour,\n\nVotre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé, nous revenons vers vous rapidement \n`,
+  };
+
+  emailjs.send(serviceIDtoAdmin, templateIDtoClient, templateParams, publicKeytoAdmin)
+    .then((response) => {
+      console.log('E-mail sent successfully:', response.status);
+    })
+    .catch((error) => {
+      console.error('Error sending e-mail:', error);
+    });
+};
 
 
 
@@ -128,7 +208,6 @@ export async function postDates(body) {
   }
 }
 export async function postBioInfos(body) {
-
   try {
 
     const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {
@@ -138,7 +217,8 @@ export async function postBioInfos(body) {
       body: JSON.stringify(body)
     });
     await response.json(); 
-    // sendEmail();
+    sendEmailToAdmin(body, 'bio');
+    sendEmailToClient(body, 'bio');
 
 
   } catch (error) {
@@ -157,6 +237,9 @@ export async function postComInfos(body, file) {
       method: "POST",
       body: formData,
     });
+
+    sendEmailToAdmin(body, 'com');
+    sendEmailToClient(body, 'com');
   } catch (e) {
     console.log(e);
   }
@@ -175,6 +258,10 @@ export async function postRecInfos(body, file) {
       body: formData,
     });
     console.log('infos enregistréés !')
+
+    sendEmailToAdmin(body, 'rec');
+    sendEmailToClient(body, 'rec');
+
   } catch (e) {
     console.log(e);
   }
@@ -193,6 +280,8 @@ export async function postOraInfos(body, file) {
       body: formData,
     });
     console.log('infos enregistréés !')
+    sendEmailToAdmin(body, 'ora');
+    sendEmailToClient(body, 'ora');
   } catch (e) {
     console.log(e);
   }

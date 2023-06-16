@@ -1,5 +1,7 @@
 import emailjs from 'emailjs-com';
 
+const BACKEND_URL = 'https://bioback.herokuapp.com'
+
 function convertDate(dateString) {
   const daysOfWeek = [
     "Dimanche",
@@ -168,7 +170,6 @@ export async function getAllDates(setDates) {
       },
     })
     const allDates = await response.json()
-
 
     const newCalendar = allDates.filter((date, index) => {
       const dateStr = new Date(date.date).toISOString();

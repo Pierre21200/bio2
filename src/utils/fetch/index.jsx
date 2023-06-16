@@ -1,6 +1,6 @@
 import emailjs from 'emailjs-com';
-const dotenv = require("dotenv");
-dotenv.config();
+// const dotenv = require("dotenv");
+// dotenv.config();
 
 const BACKEND_URL = process.env.BACKEND_URL;
 

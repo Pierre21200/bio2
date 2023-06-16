@@ -5,7 +5,7 @@ import Card from "../components/Admin/Card";
 import { fetchDatas, deleteInfos, deleteDate } from "../utils/fetch";
 import Calendar from "../components/Admin/Calendar";
 import Login from "../components/Admin/Login";
-// import Signup from "../components/Admin/Signup";
+import Signup from "../components/Admin/Signup";
 
 import jwt_decode from "jwt-decode";
 import Navbar from "../components/Navbar";
@@ -241,7 +241,7 @@ function Admin() {
         </div>
       );
     } else {
-      // return <Login setAuth={setAuth}></Login>;
+      // return <Signup setAuth={setAuth}></Signup>;
       return <Login setAuth={setAuth}></Login>;
     }
   }

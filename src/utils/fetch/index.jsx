@@ -1,6 +1,6 @@
 import emailjs from 'emailjs-com';
 
-const BACKEND_URL = process.env.BACKEND_URL
+const BACKEND_URL = 'https://bioback.herokuapp.com'
 
 function convertDate(dateString) {
   const daysOfWeek = [

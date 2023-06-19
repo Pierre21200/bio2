@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
+import { changeRdv } from "../../utils/fetch";
 
 function Card({ category, item, modalActive, handleDelete }) {
   function convertDate(dateString) {
@@ -43,6 +44,9 @@ function Card({ category, item, modalActive, handleDelete }) {
           size="2xl"
           icon={faTrashAlt}
         />
+        <button onClick={() => changeRdv(item)}>
+          {item.confirmed ? "Annuler Rendez-vous" : "Confirmez Rendez-vous"}
+        </button>
         <div className="card-line">
           <div className="card-content">
             <strong>Nom de l'animal</strong>

@@ -291,9 +291,8 @@ export async function postOraInfos(body, file) {
 
 export async function changeRdv(body) {
   const token = localStorage.getItem("token");
-
   const data = { id: body._id, category: body.category, rdv: true };
-
+  
   if (body.category === 'bio') {
     try {
       const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {
@@ -304,7 +303,6 @@ export async function changeRdv(body) {
         },
         body: JSON.stringify(data),
       });
-
       if (response.ok) {
         console.log("infos enregistrées !");
         return response.json();

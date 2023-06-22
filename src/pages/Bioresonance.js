@@ -28,7 +28,11 @@ function Bioresonance() {
             novatrice de la bioénergie. J'utilise un appareil pour mesurer les
             fréquences vibratoires des tissus du corps et les rééquilibrer.{" "}
             <br />
-            <br />
+            Elle repose sur le principe que tout, y compris notre corps et celui
+            des animaux, émet des fréquences spécifiques. Lorsque ces fréquences
+            sont perturbées par des déséquilibres énergétiques, des toxines ou
+            des blocages, cela peut entraîner des problèmes de santé.
+            <br /> <br />
             Comment ça fonctionne ? <br />
             <br />
             Lors de la séance de biorésonance, l'animal est installé dans un
@@ -37,8 +41,13 @@ function Bioresonance() {
             naturelles) sont envoyés et permettent de mesurer les fréquences
             vibratoires du corps. <br />
             <br />
-            Grâce à cet appareil programmé, je peux alors rééquilibrer ces
-            fréquences et rétablir l'homéostasie du corps.
+            Grâce à cet appareil, je suis en mesure de détecter ces
+            déséquilibres énergétiques et de les réharmoniser. La biorésonance
+            utilise des appareils spécialisés qui émettent des fréquences
+            spécifiques pour stimuler les processus naturels d'auto-guérison du
+            corps. Cela permet de rétablir l'équilibre énergétique, de favoriser
+            la santé et le bien-être de l'animal dans le but de retrouver
+            l’homéostasie du corps.
           </p>
         </div>
         <div className="img-container"></div>
@@ -60,16 +69,21 @@ function Bioresonance() {
             Quel est le but de la biorésonance d'après Paul Schmidt en présence
             ?<br />
             <br /> La biorésonance est conçue pour aider à soulager les douleurs
-            physiques, les maladies et les déséquilibres émotionnels.
-            <br />
-            <br />
+            physiques, les maladies et les déséquilibres émotionnels. Elle agit
+            en profondeur, en harmonisant l'énergie du corps et en stimulant ses
+            propres capacités de guérison.
+            <br /> <br />
             Les possibilités sont multiples :<br /> Réduction des douleurs
             physiques, amélioration de la digestion, réduction des allergies et
             amélioration du sommeil, et accompagner des pathologies lourdes
             ect... <br />
+            <br />
             Il est possible (et recommandé !) également de soutenir l'organisme
             même quand tout va bien ! C'est une véritable alternative et qui ne
-            provoque aucun effets secondaires indésirables.
+            provoque aucun effets secondaires indésirables. La biorésonance
+            offre une solution non invasive et sans effet secondaire, permettant
+            de soutenir le corps de votre animal dans son processus de guérison
+            naturelle.
           </p>
         </div>
       </div>
@@ -94,7 +108,10 @@ function Bioresonance() {
             <br />
             <br /> Cette approche convient également aux propriétaire qui
             souhaite améliorer la forme de leur animal ou simplement pour être
-            en meilleure santé.
+            en meilleure santé.<br></br>
+            N'hésitez pas à me contacter pour en savoir plus sur la biorésonance
+            et pour discuter de la manière dont elle peut bénéficier à votre
+            animal.
           </p>
           <Link to={"/biorésonance/rendez-vous"}>
             <button className="button-anim">PRENDRE RENDEZ-VOUS</button>

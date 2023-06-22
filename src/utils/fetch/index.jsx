@@ -37,14 +37,19 @@ function convertDate(dateString) {
 
 // Configurer les informations de connexion SMTP
 const serviceIDtoAdmin = 'service_2ipacxo';
+
 const templateIDtoAdmin = 'template_0lv9fnp';
 const publicKeytoAdmin = 'iG24iKfn71sEe52nR';
 
-const templateIDtoClient = 'template_9ictspl';
+// const templateIDtoClient = 'template_9ictspl';
+// const templateIDtoClientConfirmed = 'template_9ictspl';
+// const templateIDtoClientConfirmedPaiement = 'template_9ictspl';
+// communiquer.animaux@gmail.com
 
 
 // Fonction pour envoyer l'e-mail
 const sendEmailToAdmin = (data, category) => {
+  console.log(category)
   let cat = ''
   if(category === 'bio') {
     cat = 'Biorésonance'
@@ -60,9 +65,10 @@ const sendEmailToAdmin = (data, category) => {
   const date = convertDate(data.date)
 
   const templateParams = {
-    to_name: 'Pierre ',
+    to_name: 'Morgane',
+    subject: 'Nouvelle demande de rendez-vous !',
     from_name: 'ENERGIE ANIMALE',
-    to_email : '',
+    to_email : 'pierrepotin21@gmail.com',
     message: `Bonjour,\n\nVous avez une nouvelle demande de rendez-vous pour une séance de ${cat} dans votre espace administrateur pour la date du ${date} `,
   };
 
@@ -90,15 +96,15 @@ const sendEmailToClient = (data, category) => {
 
   const date = convertDate(data.date)
 
-
   const templateParams = {
     to_name: data.ownerName,
     to_email: data.mail,
+    subject: 'Demande de rendez-vous !',
     from_name: 'ENERGIE ANIMALE',
     message: `Bonjour,\n\nVotre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé. Nous traitons votre demande, vous recevrez prochainement un second mail contenant les informations de paiement. Le règlement doit etre impérativement effectué avant la date de rendez-vous. \n A bientôt ! \n`,
   };
 
-  emailjs.send(serviceIDtoAdmin, templateIDtoClient, templateParams, publicKeytoAdmin)
+  emailjs.send(serviceIDtoAdmin, templateIDtoAdmin, templateParams, publicKeytoAdmin)
     .then((response) => {
       console.log('E-mail sent successfully:', response.status);
     })
@@ -106,6 +112,73 @@ const sendEmailToClient = (data, category) => {
       console.error('Error sending e-mail:', error);
     });
 };
+
+const sendEmailToClientConfirmed = (data) => {
+  let cat = ''
+  if(data.category === 'bio') {
+    cat = 'Biorésonance'
+  }
+  if(data.category === 'com') {
+    cat = 'Communication Animale'
+  } if(data.category === 'rec') {
+    cat = 'Recherche Animale'
+  } if(data.category === 'ora') {
+    cat = `Lecture d'oracle`
+  }
+
+  const date = convertDate(data.date)
+
+
+  const templateParams = {
+    to_name: data.ownerName,
+    to_email: data.mail,
+    subject: 'Demande de rendez-vous accepté !',
+    from_name: 'ENERGIE ANIMALE',
+    message: `Bonjour,\n\nVotre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé. <br></br>Voici les informations de paiement :<br></br>IBAN : FR76 1213 5003 0004 2532 6206<br></br>MME Morgane FAUCOMPRE  \n A bientôt ! \n`,
+  };
+
+  emailjs.send(serviceIDtoAdmin, templateIDtoAdmin, templateParams, publicKeytoAdmin)
+    .then((response) => {
+      console.log('E-mail sent successfully:', response.status);
+    })
+    .catch((error) => {
+      console.error('Error sending e-mail:', error);
+    });
+};
+
+const sendEmailToClientConfirmedPaiement = (data) => {
+  let cat = ''
+  if(data.category === 'bio') {
+    cat = 'Biorésonance'
+  }
+  if(data.category === 'com') {
+    cat = 'Communication Animale'
+  } if(data.category === 'rec') {
+    cat = 'Recherche Animale'
+  } if(data.category === 'ora') {
+    cat = `Lecture d'oracle`
+  }
+
+  const date = convertDate(data.date)
+
+
+  const templateParams = {
+    to_name: data.ownerName,
+    to_email: data.mail,
+    subject: 'Votre paiement est confirmé !',
+    from_name: 'ENERGIE ANIMALE',
+    message: `Bonjour,\n\nVotre paiement pour une séance de ${cat} en date du ${date} a bien été confirmé. \n A bientôt ! \n`,
+  };
+
+  emailjs.send(serviceIDtoAdmin, templateIDtoAdmin, templateParams, publicKeytoAdmin)
+    .then((response) => {
+      console.log('E-mail sent successfully:', response.status);
+    })
+    .catch((error) => {
+      console.error('Error sending e-mail:', error);
+    });
+};
+
 
 
 
@@ -207,6 +280,7 @@ export async function postDates(body) {
     console.log(error);
   }
 }
+
 export async function postBioInfos(body) {
   try {
 
@@ -217,15 +291,14 @@ export async function postBioInfos(body) {
       body: JSON.stringify(body)
     });
     await response.json(); 
-    sendEmailToAdmin(body, 'bio');
-    sendEmailToClient(body, 'bio');
+    // sendEmailToAdmin(body, 'bio');
+    // sendEmailToClient(body, 'bio');
 
 
   } catch (error) {
     console.log(error);
   }
 }
-
 
 export async function postComInfos(body, file) {
   const formData = new FormData();
@@ -238,14 +311,12 @@ export async function postComInfos(body, file) {
       body: formData,
     });
 
-    sendEmailToAdmin(body, 'com');
-    sendEmailToClient(body, 'com');
+    // sendEmailToAdmin(body, 'com');
+    // sendEmailToClient(body, 'com');
   } catch (e) {
     console.log(e);
   }
 }
-
-
 
 export async function postRecInfos(body, file) {
   const formData = new FormData();
@@ -259,8 +330,8 @@ export async function postRecInfos(body, file) {
     });
     console.log('infos enregistréés !')
 
-    sendEmailToAdmin(body, 'rec');
-    sendEmailToClient(body, 'rec');
+    // sendEmailToAdmin(body, 'rec');
+    // sendEmailToClient(body, 'rec');
 
   } catch (e) {
     console.log(e);
@@ -280,19 +351,18 @@ export async function postOraInfos(body, file) {
       body: formData,
     });
     console.log('infos enregistréés !')
-    sendEmailToAdmin(body, 'ora');
-    sendEmailToClient(body, 'ora');
+    // sendEmailToAdmin(body, 'ora');
+    // sendEmailToClient(body, 'ora');
   } catch (e) {
     console.log(e);
   }
 
 }
 
-
 export async function changeRdv(body) {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("authToken");
   const data = { id: body._id, category: body.category, rdv: true };
-  
+
   if (body.category === 'bio') {
     try {
       const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {
@@ -303,8 +373,12 @@ export async function changeRdv(body) {
         },
         body: JSON.stringify(data),
       });
+
+
+
       if (response.ok) {
         console.log("infos enregistrées !");
+        // sendEmailToClientConfirmed(body)
         return response.json();
       } else {
         throw new Error("Erreur lors de la modification des infos");
@@ -380,12 +454,100 @@ export async function changeRdv(body) {
     }
   }
 
-
 }
 
 export async function changePay(body) {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("authToken");
   const data = { id: body._id, category: body.category, pay: true };
+  if (body.category === 'bio') {
+    try {
+      const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          "Authorization": "Bearer " + token // Ajout du token dans les en-têtes
+
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        console.log("infos enregistrées !");
+        // sendEmailToClientConfirmedPaiement(body)
+
+        return response.json();
+      } else {
+        throw new Error("Erreur lors de la modification des infos");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  if (body.category === 'ora') {
+    try {
+      const response = await fetch(BACKEND_URL +"/bioanimale/orainfos", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          "Authorization": "Bearer " + token // Ajout du token dans les en-têtes
+
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        console.log("infos enregistrées !");
+        return response.json();
+      } else {
+        throw new Error("Erreur lors de la modification des infos");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  } if (body.category === 'com') {
+    try {
+      const response = await fetch(BACKEND_URL +"/bioanimale/cominfos", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          "Authorization": "Bearer " + token // Ajout du token dans les en-têtes
+
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        console.log("infos enregistrées !");
+        return response.json();
+      } else {
+        throw new Error("Erreur lors de la modification des infos");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  } if (body.category === 'rec') {
+    try {
+      const response = await fetch(BACKEND_URL +"/bioanimale/recinfos", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          "Authorization": "Bearer " + token // Ajout du token dans les en-têtes
+
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        console.log("infos enregistrées !");
+        return response.json();
+      } else {
+        throw new Error("Erreur lors de la modification des infos");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+}
+
+export async function changePastAppointment(body) {
+  const token = localStorage.getItem("authToken");
+  const data = { id: body._id, category: body.category, pastAppointment: true };
   if (body.category === 'bio') {
     try {
       const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {

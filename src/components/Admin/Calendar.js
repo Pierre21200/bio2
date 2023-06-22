@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function Calendar({ dates, handledatepicker }) {
   const [date, setDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState("");
 
   function generateCalendar() {
     const month = date.getMonth();
@@ -60,13 +61,13 @@ function Calendar({ dates, handledatepicker }) {
         <table>
           <thead>
             <tr>
+              <th>Dim</th>
               <th>Lun</th>
               <th>Mar</th>
               <th>Mer</th>
               <th>Jeu</th>
               <th>Ven</th>
               <th>Sam</th>
-              <th>Dim</th>
             </tr>
           </thead>
           <tbody>
@@ -82,6 +83,10 @@ function Calendar({ dates, handledatepicker }) {
                           )
                             ? "rdv"
                             : null
+                        } ${
+                          selectedDate === JSON.stringify(day.date)
+                            ? "date-selected"
+                            : ""
                         }`}
                         onClick={() => {
                           if (
@@ -90,6 +95,7 @@ function Calendar({ dates, handledatepicker }) {
                             )
                           ) {
                             // La date correspond à une date dans dates
+                            setSelectedDate(JSON.stringify(day.date));
                             handledatepicker(day);
                           }
                         }}

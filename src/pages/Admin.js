@@ -6,6 +6,7 @@ import { fetchDatas, deleteInfos, deleteDate } from "../utils/fetch";
 import Calendar from "../components/Admin/Calendar";
 import Login from "../components/Admin/Login";
 import Signup from "../components/Admin/Signup";
+import { changeRdv, changePay, changePastAppointment } from "../utils/fetch";
 
 import jwt_decode from "jwt-decode";
 import Navbar from "../components/Navbar";
@@ -26,7 +27,13 @@ function Admin() {
     setDates,
   } = useContext(StateContext);
 
+  // const [changingRdv, setChangingRdv] = useState(false);
+  // const [changingPay, setChangingPay] = useState(false);
+  // const [changingPastAppointment, setChangingPastAppointment] = useState(false);
+
   const [itemToDelete, setItemToDelete] = useState(null);
+  const [itemToConfirmRdv, setItemToConfirmRdv] = useState(null);
+  const [itemToConfirmPay, setItemToConfirmPay] = useState(null);
 
   const [auth, setAuth] = useState(null);
   const [modalActive, setModalActive] = useState(false);
@@ -36,9 +43,11 @@ function Admin() {
   const [thisDate, setThisDate] = useState();
   const [confirmed, setConfirmed] = useState(false);
   const [filter, setFilter] = useState("all");
+  const [subFilter, setSubFilter] = useState(null);
+
+  const [finalDatas, setFinalDatas] = useState([]);
 
   // fetchData
-
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (token) {
@@ -57,39 +66,182 @@ function Admin() {
     if (auth) {
       fetchDatas(setDataBio, setDataCom, setDataOra, setDataRec, setDatas);
     }
-  }, [filter, confirmed, thisDate, auth]);
+    console.log("1");
+  }, [filter, confirmed, thisDate, auth, subFilter]);
 
+  // Filter n subfilter
   useEffect(() => {
     if (auth) {
-      if (filter === "bio") {
-        setDatas(dataBio);
-      } else if (filter === "com") {
-        setDatas(dataCom);
-      } else if (filter === "rec") {
-        setDatas(dataRec);
-      } else if (filter === "ora") {
-        setDatas(dataOra);
-      } else if (filter === "rdvConf") {
-        setDatas(datas.filter((item) => item.confirmed));
-      } else if (filter === "rdvInf") {
-        setDatas(datas.filter((item) => !item.confirmed));
-      } else if (filter === "payConf") {
-        setDatas(datas.filter((item) => item.confirmedPaiement));
-      } else if (filter === "payInf") {
-        setDatas(datas.filter((item) => !item.confirmedPaiement));
-      } else if (filter === "date") {
-        setDatas(
+      if (filter === "all") {
+        setFinalDatas(datas.filter((item) => !item.pastAppointment));
+        if (subFilter === "infos") {
+          setFinalDatas(
+            datas.filter((item) => !item.pastAppointment && !item.confirmed)
+          );
+        }
+        if (subFilter === "paiement") {
+          setFinalDatas(
+            datas.filter(
+              (item) =>
+                !item.confirmedPaiement &&
+                item.confirmed &&
+                !item.pastAppointment
+            )
+          );
+        }
+        if (subFilter === "archive") {
+          setFinalDatas(datas.filter((item) => item.pastAppointment));
+        }
+      } else if (filter === "bio") {
+        setFinalDatas(
           datas.filter(
-            (item) => convertDate(item.date) === convertDate(thisDate)
+            (item) => !item.pastAppointment && item.category === "bio"
+          )
+        );
+        if (subFilter === "infos") {
+          setFinalDatas(
+            datas.filter(
+              (item) =>
+                !item.confirmed &&
+                !item.pastAppointment &&
+                item.category === "bio"
+            )
+          );
+        }
+        if (subFilter === "paiement") {
+          setFinalDatas(
+            datas.filter(
+              (item) =>
+                !item.confirmedPaiement &&
+                item.confirmed &&
+                !item.pastAppointment &&
+                item.category === "bio"
+            )
+          );
+        }
+        if (subFilter === "archive") {
+          setFinalDatas(
+            datas.filter(
+              (item) => item.pastAppointment && item.category === "bio"
+            )
+          );
+        }
+      } else if (filter === "com") {
+        setFinalDatas(
+          datas.filter(
+            (item) => !item.pastAppointment && item.category === "com"
+          )
+        );
+        if (subFilter === "infos") {
+          setFinalDatas(
+            datas.filter(
+              (item) =>
+                !item.confirmed &&
+                !item.pastAppointment &&
+                item.category === "com"
+            )
+          );
+        }
+        if (subFilter === "paiement") {
+          setFinalDatas(
+            datas.filter(
+              (item) =>
+                !item.confirmedPaiement &&
+                item.confirmed &&
+                !item.pastAppointment &&
+                item.caategory === "com"
+            )
+          );
+        }
+        if (subFilter === "archive") {
+          setFinalDatas(
+            datas.filter(
+              (item) => item.pastAppointment && item.category === "com"
+            )
+          );
+        }
+      } else if (filter === "rec") {
+        setFinalDatas(
+          datas.filter(
+            (item) => !item.pastAppointment && item.category === "rec"
+          )
+        );
+        if (subFilter === "infos") {
+          setFinalDatas(
+            datas.filter(
+              (item) =>
+                !item.confirmed &&
+                !item.pastAppointment &&
+                item.category === "rec"
+            )
+          );
+        }
+        if (subFilter === "paiement") {
+          setFinalDatas(
+            datas.filter(
+              (item) =>
+                !item.confirmedPaiement &&
+                item.confirmed &&
+                !item.pastAppointment &&
+                item.caategory === "rec"
+            )
+          );
+        }
+        if (subFilter === "archive") {
+          setFinalDatas(
+            datas.filter(
+              (item) => item.pastAppointment && item.category === "rec"
+            )
+          );
+        }
+      } else if (filter === "ora") {
+        setFinalDatas(
+          datas.filter(
+            (item) => !item.pastAppointment && item.category === "ora"
+          )
+        );
+        if (subFilter === "infos") {
+          setFinalDatas(
+            datas.filter(
+              (item) =>
+                !item.confirmed &&
+                !item.pastAppointment &&
+                item.category === "ora"
+            )
+          );
+        }
+        if (subFilter === "paiement") {
+          setFinalDatas(
+            datas.filter(
+              (item) =>
+                !item.confirmedPaiement &&
+                item.confirmed &&
+                !item.pastAppointment &&
+                item.caategory === "ora"
+            )
+          );
+        }
+        if (subFilter === "archive") {
+          setFinalDatas(
+            datas.filter(
+              (item) => item.pastAppointment && item.category === "ora"
+            )
+          );
+        }
+      } else if (filter === "date") {
+        setFinalDatas(
+          datas.filter(
+            (item) =>
+              !item.pastAppointment &&
+              convertDate(item.date) === convertDate(thisDate)
           )
         );
       } else if (filter === "calendar") {
-        setDatas([]);
-      } else if (filter === "all") {
-        setDatas(datas);
+        setFinalDatas([]);
       }
     }
-  }, [dataOra, dataBio, dataCom, dataRec, filter, auth]);
+    console.log("2");
+  }, [datas, confirmed]);
 
   useEffect(() => {
     if (auth) {
@@ -145,23 +297,63 @@ function Admin() {
   }
 
   function handleDelete(item) {
-    document.getElementById("modal").style.display = "block";
+    document.getElementById("modalDelete").style.display = "block";
     setItemToDelete(item);
     setModalActive(true);
   }
 
   function handleCancelDelete() {
-    document.getElementById("modal").style.display = "none";
+    document.getElementById("modalDelete").style.display = "none";
     setModalActive(false);
   }
 
   function handleConfirmDelete() {
-    document.getElementById("modal").style.display = "none";
+    document.getElementById("modalDelete").style.display = "none";
     deleteInfos(itemToDelete);
     deleteDate(itemToDelete);
     setItemToDelete(null);
     setConfirmed(!confirmed);
     setModalActive(false);
+  }
+
+  function handleConfirmedRdv(item) {
+    document.getElementById("modalConfirmed").style.display = "block";
+    setModalActive(true);
+    setItemToConfirmRdv(item);
+  }
+
+  function handleSureRdv() {
+    document.getElementById("modalConfirmed").style.display = "none";
+    changeRdv(itemToConfirmRdv);
+    setConfirmed(!confirmed);
+    setModalActive(false);
+    setItemToConfirmRdv(null);
+  }
+
+  function handleCancelRdv() {
+    document.getElementById("modalConfirmed").style.display = "none";
+    setModalActive(false);
+    setItemToConfirmRdv(null);
+  }
+
+  function handleConfirmedPay(item) {
+    document.getElementById("modalConfirmedPaiement").style.display = "block";
+    setModalActive(true);
+    setItemToConfirmPay(item);
+  }
+
+  function handleSurePay() {
+    document.getElementById("modalConfirmedPaiement").style.display = "none";
+    changePay(itemToConfirmPay);
+    setModalActive(false);
+    setConfirmed(!confirmed);
+    setItemToConfirmPay(null);
+  }
+
+  function handleCancelPay() {
+    document.getElementById("modalConfirmedPaiement").style.display = "none";
+    setModalActive(false);
+    setItemToConfirmPay(null);
   }
 
   if (datas) {
@@ -171,12 +363,14 @@ function Admin() {
           <Navbar
             admin
             setFilter={setFilter}
+            setSubFilter={setSubFilter}
             filter={filter}
+            subFilter={subFilter}
             setShowCalendar={setShowCalendar}
             Calendar={Calendar}
             modalActive={modalActive}
           ></Navbar>
-          <div className="modal" id="modal">
+          <div className="modal" id="modalDelete">
             <p>
               Attention
               <br />
@@ -188,8 +382,31 @@ function Admin() {
               <button onClick={() => handleCancelDelete()}>Annuler</button>
             </div>
           </div>
-
-          <div className={`admin-body ${modalActive ? "flou" : ""}`}>
+          <div className="modal" id="modalConfirmed">
+            <p>
+              Attention
+              <br />
+              Le formulaire sera confirmé, un mail contenant les informations de
+              paiement sera envoyé au client, êtes-vous sur ?
+            </p>
+            <div className="button-container">
+              <button onClick={() => handleSureRdv()}>Confirmer</button>
+              <button onClick={() => handleCancelRdv()}>Annuler</button>
+            </div>
+          </div>
+          <div className="modal" id="modalConfirmedPaiement">
+            <p>
+              Attention
+              <br />
+              Le paiement sera confirmé, un email de confirmation de paiement
+              sera envoyé au client, êtes-vous sur ?
+            </p>
+            <div className="button-container">
+              <button onClick={() => handleSurePay()}>Confirmer</button>
+              <button onClick={() => handleCancelPay()}>Annuler</button>
+            </div>
+          </div>
+          <div>
             {showCalendar ? (
               <div className="calendar-container">
                 <Calendar
@@ -200,7 +417,7 @@ function Admin() {
             ) : null}
 
             <div className="cards-container">
-              {datas.map((item) => (
+              {finalDatas.map((item) => (
                 <div
                   key={item._id}
                   className={`card-container ${
@@ -233,6 +450,9 @@ function Admin() {
                     item={item}
                     handleDelete={handleDelete}
                     modalActive={modalActive}
+                    setModalActive={setModalActive}
+                    handleConfirmedRdv={handleConfirmedRdv}
+                    handleConfirmedPay={handleConfirmedPay}
                   />
                 </div>
               ))}

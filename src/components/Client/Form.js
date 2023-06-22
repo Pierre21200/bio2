@@ -26,6 +26,8 @@ function Form({ bio, rec, ora, com }) {
 
   const [showRecap, setShowRecap] = useState(false);
   const [warning, setWarning] = useState(false);
+  const [warningMail, setWarningMail] = useState(false);
+
   const [file, setFile] = useState();
 
   useEffect(() => {
@@ -44,10 +46,12 @@ function Form({ bio, rec, ora, com }) {
 
   function handlePostBio(body, e) {
     e.preventDefault(e);
-    if (verifForm(body)) {
+    if (verifForm(body) === true) {
       postBioInfos(body, bio);
       postDates(body);
       setShowRecap(true);
+    } else if (verifForm(body) === "mail") {
+      setWarningMail(true);
     } else {
       setWarning(true);
     }
@@ -79,7 +83,6 @@ function Form({ bio, rec, ora, com }) {
     e.preventDefault(e);
     if (verifForm(body) && file) {
       postDates(body);
-
       postOraInfos(body, file, (ora = true));
       setShowRecap(true);
     } else {
@@ -203,7 +206,7 @@ function Form({ bio, rec, ora, com }) {
             <label htmlFor="mail">
               Adresse <br className="cache"></br>Mail
               <input
-                type="texte"
+                type="mail"
                 id="mail"
                 name="mail"
                 value={bioInfosForm.mail}
@@ -265,9 +268,15 @@ function Form({ bio, rec, ora, com }) {
               }
             ></textarea>
           </label>
-          <div className={` ${warning ? "warning" : "advice"}`}>
+          <div
+            className={`${
+              warning ? "warning" : warningMail ? "mail-warning" : "advice"
+            }`}
+          >
             {warning
-              ? "Tout les champs ne sont pas remplis"
+              ? "Tous les champs ne sont pas remplis"
+              : warningMail
+              ? "L'adresse mail ne semble pas correcte"
               : "Tous les champs sont requis"}
           </div>
           <div className="form-button-container">

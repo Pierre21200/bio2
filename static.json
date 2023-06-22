@@ -7,7 +7,6 @@
         "X-Content-Type-Options": "nosniff",
         "Referrer-Policy": "strict-origin-when-cross-origin",
         "Permissions-Policy": "your-policy-here",
-        "X-Content-Type-Options": "nosniff",
         "X-XSS-Protection": "1; mode=block",
         "Content-Type": "text/html; charset=utf-8",
         "X-Download-Options": "noopen",

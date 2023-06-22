@@ -60,7 +60,7 @@ function Acceuil() {
         <img src={flower3} alt="flower-decoration" className="flower3" />
 
         <h2 className="first-text seasons">
-          VOUS AIDER A COMPRENDRE VOTRE ANIMAL
+          VOUS AIDER A COMPRENDRE VOTRE ANIMAL oui
         </h2>
         <p className="second-text garamond">
           Comment puis je vous aider ?<br /> Vous souhaitez lui transmettre un

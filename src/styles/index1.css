@@ -318,25 +318,25 @@ font-weight: bold;
 }
 
 .img-container-com {
-  background-image: url('../utils/img/litle-img-com1.jpg');
+  background-image: url('../utils/img/litle-img-com1.webp');
   background-size: cover;
   background-position: -80px 0;
 }
 
 .img-container-bio {
-  background-image: url('../utils/img/litle-img-bio.JPG');
+  background-image: url('../utils/img/litle-img-bio.webp');
   background-size: cover;
   background-position: 0px -40px;
 }
 
 .img-container-rec {
-  background-image: url('../utils/img/litle-img-rec1.jpg');
+  background-image: url('../utils/img/litle-img-rec1.webp');
   background-size: cover;
   background-position: -100px 20px;
 }
 
 .img-container-ora {
-  background-image: url('../utils/img/litle-img-ora1.jpg');
+  background-image: url('../utils/img/litle-img-ora1.webp');
   background-size: cover;
   background-position: -80px 0;
 }
@@ -440,27 +440,27 @@ margin: 0;
 }
 
 #com .img-container {
-  background-image: url('../utils/img/img-com1.jpg');
+  background-image: url('../utils/img/img-com1.webp');
   background-size: cover;
   background-position: -80px 0;
 }
 
 #com1 .img-container {
-  background-image: url('../utils/img/img-com2.jpg');
+  background-image: url('../utils/img/img-com2.webp');
   background-size: 220%;
   background-size: cover;
   background-position: -260px 0;
 }
 
 #rec .img-container {
-  background-image: url('../utils/img/img-rec.jpg');
+  background-image: url('../utils/img/img-rec.webp');
   background-size: 200% ;
   background-position: -80px 0;
   background-size: cover;
 }
 
 #bio .img-container {
-  background-image: url('../utils/img/img-bio.jpg');
+  background-image: url('../utils/img/img-bio.webp');
   background-size: 180% ;
   background-position: -200px 0;
   background-size: cover;
@@ -468,7 +468,7 @@ margin: 0;
 }
 
 #bio1 .img-container {
-  background-image: url('../utils/img/img-bio1.jpg');
+  background-image: url('../utils/img/img-bio1.webp');
   background-size: 185% ;
   background-size: cover;
 
@@ -476,7 +476,7 @@ margin: 0;
 }
 
 #bio2 .img-container {
-  background-image: url('../utils/img/img-bio2.jpg');
+  background-image: url('../utils/img/img-bio2.webp');
   background-size: 210% ;
   background-position: -350px 0;
   background-size: cover;
@@ -484,7 +484,7 @@ margin: 0;
 }
 
 #ora .img-container {
-  background-image: url('../utils/img/litle-img-ora1.jpg');
+  background-image: url('../utils/img/litle-img-ora1.webp');
   background-size: 210% ;
   background-position: -350px 0;
   background-size: cover;
@@ -492,7 +492,7 @@ margin: 0;
 }
 
 #ora1 .img-container {
-  background-image: url('../utils/img/img-ora2.jpg');
+  background-image: url('../utils/img/img-ora2.webp');
   background-size: 210% ;
   background-position: -150px 0;
   background-size: cover;
@@ -500,7 +500,7 @@ margin: 0;
 }
 
 #rdv .img-container {
-  background-image: url('../utils/img/img-rdv1.jpg');
+  background-image: url('../utils/img/img-rdv1.webp');
   /* background-position: 0px -200px; */
   background-size: cover;
 
@@ -1293,7 +1293,7 @@ cursor: pointer;
 
 /* IMAGES */
 .first-sight-left-content {
-  background-image: url('../utils/img/first-sight1.jpg');
+  background-image: url('../utils/img/first-sight1.webp');
   background-size: cover;
   background-position: 0px 40px;
 }

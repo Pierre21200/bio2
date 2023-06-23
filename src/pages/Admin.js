@@ -66,7 +66,6 @@ function Admin() {
     if (auth) {
       fetchDatas(setDataBio, setDataCom, setDataOra, setDataRec, setDatas);
     }
-    console.log("1");
   }, [filter, confirmed, thisDate, auth, subFilter]);
 
   // Filter n subfilter

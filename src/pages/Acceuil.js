@@ -34,7 +34,7 @@ function Acceuil() {
       <div className=" first-sight-container" id="first-sight">
         <div className="first-sight-content first-sight-left-content"></div>
         <div className="first-sight-content first-sight-right-content">
-          <h2 className="hero first-text">ÉNERGIE ANIMAL</h2>
+          <h2 className="hero first-text">ÉNERGIE ANIMALE</h2>
           <h2 className="garamond second-text">l'écoute animale</h2>
           <h1 className="seasons third-text">
             COMMUNICATION ANIMALE <br />

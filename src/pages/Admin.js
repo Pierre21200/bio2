@@ -367,8 +367,7 @@ function Admin() {
             subFilter={subFilter}
             setShowCalendar={setShowCalendar}
             Calendar={Calendar}
-            modalActive={modalActive}
-          ></Navbar>
+            modalActive={modalActive}></Navbar>
           <div className="modal" id="modalDelete">
             <p>
               Attention
@@ -410,8 +409,7 @@ function Admin() {
               <div className="calendar-container">
                 <Calendar
                   dates={dates}
-                  handledatepicker={handledatepicker}
-                ></Calendar>
+                  handledatepicker={handledatepicker}></Calendar>
               </div>
             ) : null}
 
@@ -427,8 +425,7 @@ function Admin() {
                       : item.category === "rec"
                       ? "card-rec"
                       : "card-ora"
-                  }`}
-                >
+                  }`}>
                   <div className="title-card-admin">
                     <div className="title-card">
                       {item.category === "bio" ? <h2>BIORESONANCE</h2> : null}

@@ -187,9 +187,6 @@ function Navbar({
         <Link to="/biorésonance">
           <div>BIORESONANCE</div>
         </Link>
-        <Link to={"/admin"}>
-          <div>ADMIN</div>
-        </Link>
 
         <Link to="/communication-animale">
           <div>COMMUNICATION ANIMALE</div>

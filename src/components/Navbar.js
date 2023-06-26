@@ -71,39 +71,34 @@ function Navbar({
       <div className={`navbar-admin ${modalActive ? "flou" : ""}`}>
         <div
           className={`${filter === "all" ? "navbar-focus" : ""} pointer`}
-          onClick={() => setFilterAndCalendar("all")}
-        >
+          onClick={() => setFilterAndCalendar("all")}>
           TOUS
         </div>
         <div
           className={`${filter === "bio" ? "navbar-focus" : ""} pointer`}
-          onClick={() => setFilterAndCalendar("bio")}
-        >
+          onClick={() => setFilterAndCalendar("bio")}>
           BIORESONANCE
         </div>
+
         <div
           className={`${filter === "com" ? "navbar-focus" : ""} pointer`}
-          onClick={() => setFilterAndCalendar("com")}
-        >
+          onClick={() => setFilterAndCalendar("com")}>
           COMMUNICATION
         </div>
         <div
           className={`${filter === "rec" ? "navbar-focus" : ""} pointer`}
-          onClick={() => setFilterAndCalendar("rec")}
-        >
+          onClick={() => setFilterAndCalendar("rec")}>
           RECHERCHE
         </div>
         <div
           className={`${filter === "ora" ? "navbar-focus" : ""} pointer`}
-          onClick={() => setFilterAndCalendar("ora")}
-        >
+          onClick={() => setFilterAndCalendar("ora")}>
           ORACLE
         </div>
 
         <div
           className={`${filter === "calendar" ? "navbar-focus" : ""} pointer`}
-          onClick={() => handleCalendar()}
-        >
+          onClick={() => handleCalendar()}>
           CALENDRIER
         </div>
         <div
@@ -114,16 +109,14 @@ function Navbar({
             if (filter !== "calendar" && filter !== "date") {
               setSubFilter();
             }
-          }}
-        >
+          }}>
           <div>
             En attente de Confirmation des informations
             <input
               type="checkbox"
               onChange={() => handleCheck("infos")}
               checked={checkInfo}
-              disabled={filter === "calendar" || filter === "date"}
-            ></input>
+              disabled={filter === "calendar" || filter === "date"}></input>
           </div>
           <div>
             En attente de Paiement{" "}
@@ -131,8 +124,7 @@ function Navbar({
               type="checkbox"
               onChange={() => handleCheck("paiement")}
               checked={checkPay}
-              disabled={filter === "calendar" || filter === "date"}
-            ></input>
+              disabled={filter === "calendar" || filter === "date"}></input>
           </div>
           <div>
             Rendez-vous archivées{" "}
@@ -140,8 +132,7 @@ function Navbar({
               type="checkbox"
               onChange={() => handleCheck("archive")}
               checked={checkArc}
-              disabled={filter === "calendar" || filter === "date"}
-            ></input>
+              disabled={filter === "calendar" || filter === "date"}></input>
           </div>
         </div>
       </div>
@@ -158,6 +149,10 @@ function Navbar({
         <Link to="/biorésonance">
           <div>BIORESONANCE</div>
         </Link>
+        <Link to={"/admin"}>
+          <div>ADMIN</div>
+        </Link>
+
         <Link to="/communication-animale">
           <div>COMMUNICATION ANIMALE</div>
         </Link>

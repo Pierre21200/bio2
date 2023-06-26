@@ -18,7 +18,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import flower5 from "../../utils/img/flower5.png";
+import flower5 from "../../utils/img/flower5.webp";
 
 function Form({ bio, rec, ora, com }) {
   const { dataBio, dataRec, dataOra, dataCom, dates, setDates } =
@@ -153,8 +153,7 @@ function Form({ bio, rec, ora, com }) {
         </div>
         <form
           className="bioform"
-          onSubmit={(e) => handlePostBio(bioInfosForm, e)}
-        >
+          onSubmit={(e) => handlePostBio(bioInfosForm, e)}>
           <div className="form-line">
             <label htmlFor="nom-animal">
               Nom de l'animal
@@ -168,8 +167,7 @@ function Form({ bio, rec, ora, com }) {
                     ...bioInfosForm,
                     animalName: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
             <label htmlFor="espace-animal">
               Espece de l'animal
@@ -183,8 +181,7 @@ function Form({ bio, rec, ora, com }) {
                     ...bioInfosForm,
                     animalSpecies: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
           </div>
           <div className="form-line">
@@ -200,8 +197,7 @@ function Form({ bio, rec, ora, com }) {
                     ...bioInfosForm,
                     ownerName: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
             <label htmlFor="mail">
               Adresse <br className="cache"></br>Mail
@@ -215,8 +211,7 @@ function Form({ bio, rec, ora, com }) {
                     ...bioInfosForm,
                     mail: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
           </div>
           <div className="form-line">
@@ -251,8 +246,7 @@ function Form({ bio, rec, ora, com }) {
                     ...bioInfosForm,
                     localisation: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
           </div>
 
@@ -265,14 +259,12 @@ function Form({ bio, rec, ora, com }) {
               value={bioInfosForm.why}
               onChange={(e) =>
                 setBioInfosForm({ ...bioInfosForm, why: e.target.value })
-              }
-            ></textarea>
+              }></textarea>
           </label>
           <div
             className={`${
               warning ? "warning" : warningMail ? "mail-warning" : "advice"
-            }`}
-          >
+            }`}>
             {warning
               ? "Tous les champs ne sont pas remplis"
               : warningMail
@@ -316,16 +308,14 @@ function Form({ bio, rec, ora, com }) {
         <form
           className="comform"
           encType="multipart/from-data"
-          onSubmit={(e) => handlePostCom(comInfosForm, e)}
-        >
+          onSubmit={(e) => handlePostCom(comInfosForm, e)}>
           <label className="big-label-picture">
             Photo récente
             <input
               className="input-file"
               onChange={(e) => setFile(e.target.files[0])}
               type="file"
-              name="image"
-            ></input>
+              name="image"></input>
             <div className="false-input-file">Choisir un fichier</div>
           </label>
           <div className="form-line">
@@ -341,8 +331,7 @@ function Form({ bio, rec, ora, com }) {
                     ...comInfosForm,
                     animalName: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
             <label htmlFor="nom-gardien">
               Nom du gardien&nbsp;
@@ -356,8 +345,7 @@ function Form({ bio, rec, ora, com }) {
                     ...comInfosForm,
                     ownerName: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
           </div>
           <div className="form-line">
@@ -390,8 +378,7 @@ function Form({ bio, rec, ora, com }) {
                     ...comInfosForm,
                     mail: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
           </div>
           <label className="big-label">
@@ -403,8 +390,7 @@ function Form({ bio, rec, ora, com }) {
               value={comInfosForm.why}
               onChange={(e) =>
                 setComInfosForm({ ...comInfosForm, why: e.target.value })
-              }
-            ></textarea>
+              }></textarea>
           </label>
           <div className={` ${warning ? "warning" : "advice"}`}>
             {warning
@@ -445,8 +431,7 @@ function Form({ bio, rec, ora, com }) {
         <form
           className="recform"
           encType="multipart/from-data"
-          onSubmit={(e) => handlePostRec(recInfosForm, e)}
-        >
+          onSubmit={(e) => handlePostRec(recInfosForm, e)}>
           <div className="form-line">
             <label>
               Photo récente
@@ -454,8 +439,7 @@ function Form({ bio, rec, ora, com }) {
                 className="input-file"
                 onChange={(e) => setFile(e.target.files[0])}
                 type="file"
-                name="image"
-              ></input>
+                name="image"></input>
               <div className="false-input-file">Choisir un fichier</div>
             </label>
 
@@ -471,8 +455,7 @@ function Form({ bio, rec, ora, com }) {
                     ...recInfosForm,
                     animalName: e.target.value,
                   })
-                }
-              ></input>{" "}
+                }></input>{" "}
             </label>
           </div>
 
@@ -490,8 +473,7 @@ function Form({ bio, rec, ora, com }) {
                     ...recInfosForm,
                     ownerName: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
             <label htmlFor="localisation">
               Lieu de vie de l'animal&nbsp;
@@ -505,8 +487,7 @@ function Form({ bio, rec, ora, com }) {
                     ...recInfosForm,
                     localisation: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
           </div>
           <div className="form-line">
@@ -539,8 +520,7 @@ function Form({ bio, rec, ora, com }) {
                     ...recInfosForm,
                     mail: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
           </div>
 
@@ -553,8 +533,7 @@ function Form({ bio, rec, ora, com }) {
               value={recInfosForm.why}
               onChange={(e) =>
                 setRecInfosForm({ ...recInfosForm, why: e.target.value })
-              }
-            ></textarea>
+              }></textarea>
           </label>
           <div className={` ${warning ? "warning" : "advice"}`}>
             {warning
@@ -596,16 +575,14 @@ function Form({ bio, rec, ora, com }) {
         <form
           className="oraform"
           encType="multipart/from-data"
-          onSubmit={(e) => handlePostOra(oraInfosForm, e)}
-        >
+          onSubmit={(e) => handlePostOra(oraInfosForm, e)}>
           <label className="big-label-picture">
             Photo récente
             <input
               className="input-file"
               onChange={(e) => setFile(e.target.files[0])}
               type="file"
-              name="image"
-            ></input>
+              name="image"></input>
             <div className="false-input-file">Choisir un fichier</div>
           </label>
           <div className="form-line">
@@ -622,8 +599,7 @@ function Form({ bio, rec, ora, com }) {
                     ...oraInfosForm,
                     animalName: e.target.value,
                   })
-                }
-              ></input>{" "}
+                }></input>{" "}
             </label>
             <label htmlFor="nom-gardien">
               Nom du gardien&nbsp;
@@ -637,8 +613,7 @@ function Form({ bio, rec, ora, com }) {
                     ...oraInfosForm,
                     ownerName: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
           </div>
           <div className="form-line">
@@ -672,8 +647,7 @@ function Form({ bio, rec, ora, com }) {
                     ...oraInfosForm,
                     mail: e.target.value,
                   })
-                }
-              ></input>
+                }></input>
             </label>
           </div>
           <label className="big-label">
@@ -686,8 +660,7 @@ function Form({ bio, rec, ora, com }) {
               value={oraInfosForm.why}
               onChange={(e) =>
                 setOraInfosForm({ ...oraInfosForm, why: e.target.value })
-              }
-            ></textarea>
+              }></textarea>
           </label>{" "}
           <div className={` ${warning ? "warning" : "advice"}`}>
             {warning

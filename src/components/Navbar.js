@@ -68,7 +68,10 @@ function Navbar({
 
   if (admin) {
     return (
-      <div className={`navbar-admin ${modalActive ? "flou" : ""}`}>
+      <div id="navbar" className={`navbar-admin ${modalActive ? "flou" : ""}`}>
+        <div className="navbar-dropdown-admin" onClick={() => handleDropdown()}>
+          <FontAwesomeIcon icon={faBars} />
+        </div>
         <div
           className={`${filter === "all" ? "navbar-focus" : ""} pointer`}
           onClick={() => setFilterAndCalendar("all")}>
@@ -111,7 +114,7 @@ function Navbar({
             }
           }}>
           <div>
-            En attente de Confirmation des informations
+            En attente de Confirmation
             <input
               type="checkbox"
               onChange={() => handleCheck("infos")}
@@ -120,6 +123,41 @@ function Navbar({
           </div>
           <div>
             En attente de Paiement{" "}
+            <input
+              type="checkbox"
+              onChange={() => handleCheck("paiement")}
+              checked={checkPay}
+              disabled={filter === "calendar" || filter === "date"}></input>
+          </div>
+          <div>
+            Rendez-vous archivées{" "}
+            <input
+              type="checkbox"
+              onChange={() => handleCheck("archive")}
+              checked={checkArc}
+              disabled={filter === "calendar" || filter === "date"}></input>
+          </div>
+        </div>
+        <div
+          className={`navbar-side-phone ${
+            filter === "calendar" || filter === "date" ? "hide-navbar-side" : ""
+          } `}
+          onClick={() => {
+            if (filter !== "calendar" && filter !== "date") {
+              setSubFilter();
+            }
+          }}>
+          <div>En attente :</div>
+          <div>
+            De Confirmation
+            <input
+              type="checkbox"
+              onChange={() => handleCheck("infos")}
+              checked={checkInfo}
+              disabled={filter === "calendar" || filter === "date"}></input>
+          </div>
+          <div>
+            De Paiement
             <input
               type="checkbox"
               onChange={() => handleCheck("paiement")}

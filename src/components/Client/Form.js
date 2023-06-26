@@ -18,7 +18,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import flower5 from "../../utils/img/flower5.webp";
+// import flower5 from "../../utils/img/flower5.webp";
 
 function Form({ bio, rec, ora, com }) {
   const { dataBio, dataRec, dataOra, dataCom, dates, setDates } =
@@ -128,7 +128,7 @@ function Form({ bio, rec, ora, com }) {
   if (bio && !showRecap) {
     return (
       <div className="contact-bio">
-        <img className="flower5" src={flower5} alt="flower"></img>
+        {/* <img className="flower5" src={flower5} alt="flower"></img> */}
         <Navbar></Navbar>
         <div className="contact-presentation">
           <div className="header">
@@ -282,7 +282,7 @@ function Form({ bio, rec, ora, com }) {
   } else if (com && !showRecap) {
     return (
       <div className="contact-com">
-        <img className="flower5" src={flower5} alt="flower"></img>
+        {/* <img className="flower5" src={flower5} alt="flower"></img> */}
 
         <Navbar></Navbar>
 
@@ -408,7 +408,7 @@ function Form({ bio, rec, ora, com }) {
   } else if (rec && !showRecap) {
     return (
       <div className="contact-rec">
-        <img className="flower5" src={flower5} alt="flower"></img>
+        {/* <img className="flower5" src={flower5} alt="flower"></img> */}
 
         <Navbar></Navbar>
 
@@ -551,7 +551,7 @@ function Form({ bio, rec, ora, com }) {
   } else if (ora && !showRecap) {
     return (
       <div className="contact-ora">
-        <img className="flower5" src={flower5} alt="flower"></img>
+        {/* <img className="flower5" src={flower5} alt="flower"></img> */}
 
         <Navbar></Navbar>
 

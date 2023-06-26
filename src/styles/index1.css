@@ -96,7 +96,10 @@ transform: scale(1.1);
   display: none;
 }
 
-
+.navbar-dropdown-admin {
+  visibility: hidden;
+  display: none;
+}
 /* firstSIGHT */
 .first-sight-container {
   background: var(--color-background); 
@@ -462,7 +465,7 @@ margin: 0;
 #bio .img-container {
   background-image: url('../utils/img/img-bio.webp');
   background-size: 180% ;
-  background-position: -200px 0;
+  background-position: -400px 0;
   background-size: cover;
 
 }
@@ -472,7 +475,7 @@ margin: 0;
   background-size: 185% ;
   background-size: cover;
 
-  background-position: -200px 0;
+  background-position: -220px 0;
 }
 
 #bio2 .img-container {
@@ -1064,6 +1067,10 @@ cursor: pointer;
   cursor: default;
 }
 
+.navbar-side-phone {
+  display: none;
+}
+
 .cards-container {
   padding-top: 25px;
 }
@@ -1327,6 +1334,9 @@ cursor: pointer;
     font-weight: bold;
     z-index: 10000;
   }
+
+  
+
   .navbar-client {
     visibility: hidden;
     width: 20%;
@@ -1349,7 +1359,7 @@ cursor: pointer;
     padding-left: 50px;
   }
   .first-sight-left-content {
-    background-position: -300px 0;
+    background-position: 0px 0px;
   }
   #com .img-container {
     background-position: -400px 0;
@@ -1358,16 +1368,16 @@ cursor: pointer;
     background-position: -200px 0;
   }
   #rec .img-container {
-    background-position: -350px 100px;
+    background-position: -350px 0px;
   }
   #bio .img-container {
-    background-position: -600px 0;
+    background-position: -900px 0;
   }
   #bio1 .img-container {
-    background-position: -500px 0px;
+    background-position: -700px 0px;
   }
   #bio2 .img-container {
-    background-position: -600px 0;
+    background-position: -700px 0;
   }
   #ora .img-container {
     background-position: -500px 0;
@@ -1390,7 +1400,89 @@ cursor: pointer;
   .third-sight .second-line div {
     margin-bottom: 50px;
   }
+  .navbar-side {
+    height: 80px;
+  }
+  .navbar-side div{
+    margin: 0 50px;
+  }
 }
+
+
+@media (max-width: 820px) { 
+
+  .card-container {
+    padding: 20px 0;
+  }
+
+.navbar-dropdown-admin {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  visibility: visible;
+  display: block;
+  border: 2px solid var(--color-text);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  padding: 10px;
+  font-family: 'Garamond',sans-serif;
+  font-weight: bold;
+  z-index: 10000;
+}
+.navbar-admin {
+  visibility: hidden;
+  flex-direction: column;
+  width: auto;
+  height: 100%;
+  border-right: 2px solid var(--color-text);
+}
+
+.navbar-side {
+  display: none;
+}
+
+.navbar-side-phone {
+  display: flex;
+  position: static;
+  flex-direction: column;
+  border-bottom: 0;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--color-text);
+  height: 20%;
+  padding-top: 0px;
+  justify-content: space-around;
+  font-size: 20px;
+}
+
+.card-button-container {
+  flex-direction: column;
+  justify-content: space-around;
+  height: 200px;
+}
+.card-line {
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.progression {
+  display: none;
+}
+.card-content {
+  flex-direction: column ;
+  padding: 10px;
+}
+.card-content p {
+  width: auto;
+}
+.card .big-div {
+  width: auto;
+}
+}
+
 
 
 @media (max-width: 769px) { 
@@ -1425,7 +1517,7 @@ cursor: pointer;
   }
 
   #com .img-container {
-    background-position: -700px 0;
+    background-position: -550px 0;
   }
   #com1 .img-container {
     background-position: -400px 0;
@@ -1434,19 +1526,19 @@ cursor: pointer;
     background-position: -600px 0;
   }
   #bio .img-container {
-    background-position: -900px 0;
+    background-position: -1350px 0;
   }
   #bio1 .img-container {
-    background-position: -750px 0px;
+    background-position: -1000px 0px;
   }
   #bio2 .img-container {
-    background-position: -800px 0;
+    background-position: -1000px 0;
   }
   #ora .img-container {
     background-position: -800px 0;
   }
   #ora1 .img-container {
-    background-position: -800px 00px;
+    background-position: -700px 00px;
   }
   #rdv .img-container {
     background-position: -100px 0;

@@ -246,7 +246,7 @@ font-weight: bold;
 
 .flower2 {
   position: absolute;
-  width: 250px;
+  /* width: 250px; */
   left: -25px;
   top: 98vh;
   opacity: 0.5;
@@ -254,7 +254,7 @@ font-weight: bold;
 
 .flower3 {
   position: absolute;
-  width: 250px;
+  /* width: 250px; */
   right: 0;
   top: 135vh;
   opacity: 0.5;

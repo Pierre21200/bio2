@@ -1,7 +1,5 @@
 import emailjs from 'emailjs-com';
 
-// const BACKEND_URL = process.env.BACKEND_URL;
-
 
 const BACKEND_URL = 'https://bioback.herokuapp.com'
 
@@ -71,7 +69,7 @@ const sendEmailToAdmin = (data, category) => {
     to_name: 'Morgane',
     subject: 'Nouvelle demande de rendez-vous !',
     from_name: 'ENERGIE ANIMALE',
-    to_email : 'pierrepotin21@gmail.com',
+    to_email : 'communiquer.animaux@gmail.com',
     message: `Bonjour,\n\nVous avez une nouvelle demande de rendez-vous pour une séance de ${cat} dans votre espace administrateur pour la date du ${date} `,
   };
 
@@ -294,8 +292,8 @@ export async function postBioInfos(body) {
       body: JSON.stringify(body)
     });
     await response.json(); 
-    // sendEmailToAdmin(body, 'bio');
-    // sendEmailToClient(body, 'bio');
+    sendEmailToAdmin(body, 'bio');
+    sendEmailToClient(body, 'bio');
 
 
   } catch (error) {
@@ -314,8 +312,8 @@ export async function postComInfos(body, file) {
       body: formData,
     });
 
-    // sendEmailToAdmin(body, 'com');
-    // sendEmailToClient(body, 'com');
+    sendEmailToAdmin(body, 'com');
+    sendEmailToClient(body, 'com');
   } catch (e) {
     console.log(e);
   }
@@ -333,8 +331,8 @@ export async function postRecInfos(body, file) {
     });
     console.log('infos enregistréés !')
 
-    // sendEmailToAdmin(body, 'rec');
-    // sendEmailToClient(body, 'rec');
+    sendEmailToAdmin(body, 'rec');
+    sendEmailToClient(body, 'rec');
 
   } catch (e) {
     console.log(e);
@@ -354,8 +352,8 @@ export async function postOraInfos(body, file) {
       body: formData,
     });
     console.log('infos enregistréés !')
-    // sendEmailToAdmin(body, 'ora');
-    // sendEmailToClient(body, 'ora');
+    sendEmailToAdmin(body, 'ora');
+    sendEmailToClient(body, 'ora');
   } catch (e) {
     console.log(e);
   }
@@ -381,7 +379,7 @@ export async function changeRdv(body) {
 
       if (response.ok) {
         console.log("infos enregistrées !");
-        // sendEmailToClientConfirmed(body)
+        sendEmailToClientConfirmed(body)
         return response.json();
       } else {
         throw new Error("Erreur lors de la modification des infos");
@@ -404,6 +402,7 @@ export async function changeRdv(body) {
 
       if (response.ok) {
         console.log("infos enregistrées !");
+        sendEmailToClientConfirmed(body)
         return response.json();
       } else {
         throw new Error("Erreur lors de la modification des infos");
@@ -424,6 +423,8 @@ export async function changeRdv(body) {
       });
       if (response.ok) {
         console.log("infos enregistrées !");
+        sendEmailToClientConfirmed(body)
+
         return response.json();
       } else {
         throw new Error("Erreur lors de la modification des infos");
@@ -448,6 +449,8 @@ export async function changeRdv(body) {
       });
       if (response.ok) {
         console.log("infos enregistrées !");
+        sendEmailToClientConfirmed(body)
+
         return response.json();
       } else {
         throw new Error("Erreur lors de la modification des infos");
@@ -475,7 +478,7 @@ export async function changePay(body) {
       });
       if (response.ok) {
         console.log("infos enregistrées !");
-        // sendEmailToClientConfirmedPaiement(body)
+        sendEmailToClientConfirmedPaiement(body)
 
         return response.json();
       } else {
@@ -498,6 +501,8 @@ export async function changePay(body) {
       });
       if (response.ok) {
         console.log("infos enregistrées !");
+        sendEmailToClientConfirmedPaiement(body)
+
         return response.json();
       } else {
         throw new Error("Erreur lors de la modification des infos");
@@ -518,6 +523,8 @@ export async function changePay(body) {
       });
       if (response.ok) {
         console.log("infos enregistrées !");
+        sendEmailToClientConfirmedPaiement(body)
+
         return response.json();
       } else {
         throw new Error("Erreur lors de la modification des infos");
@@ -538,6 +545,8 @@ export async function changePay(body) {
       });
       if (response.ok) {
         console.log("infos enregistrées !");
+        sendEmailToClientConfirmedPaiement(body)
+
         return response.json();
       } else {
         throw new Error("Erreur lors de la modification des infos");

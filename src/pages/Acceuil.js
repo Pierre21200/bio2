@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import flower2 from "../utils/img/flower2.webp";
 import flower3 from "../utils/img/flower3.webp";
+import flower5 from "../utils/img/fleur2.webp";
+import flower6 from "../utils/img/fleur3.webp";
+
 import avis1 from "../utils/img/avis1.webp";
 import avis2 from "../utils/img/avis2.webp";
 import avis3 from "../utils/img/avis3.webp";
@@ -88,10 +91,13 @@ function Acceuil() {
       </div>
 
       <div className="third-sight" id="third-sight">
+        <img src={flower5} alt="flower-decoration" className="flower5" />
+        <img src={flower6} alt="flower-decoration" className="flower6" />
         <div className="first-line">
           <div className="acceuil-com">
             <Link to={"/communication-animale"}>
               <div className="img-container img-container-com"></div>
+
               <h2>Communication Animale</h2>
               <p>
                 Vous souhaitez que je fasse l'intermédiaire entre votre animal

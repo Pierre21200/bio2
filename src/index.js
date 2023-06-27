@@ -11,6 +11,7 @@ import Communciation from "./pages/Communication";
 import Bioresonance from "./pages/Bioresonance";
 import Recherche from "./pages/Recherche";
 import Oracle from "./pages/Oracle";
+import About from "./pages/About";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -22,6 +23,7 @@ root.render(
           <Routes>
             <Route exact path="/" element={<Acceuil />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/about" element={<About />} />
             <Route path="/biorésonance" element={<Bioresonance />} />
             <Route path="/communication-animale" element={<Communciation />} />
             <Route path="/recherche-animale" element={<Recherche />} />

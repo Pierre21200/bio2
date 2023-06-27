@@ -6,8 +6,7 @@ function Bioresonance() {
       <Navbar></Navbar>
       <div
         className="acceuil-presentation-bio acceuil-presentation-content"
-        id="bio"
-      >
+        id="bio">
         <div className="text-container">
           <div className="h-container">
             <h2>LA BIORESONANCE</h2>
@@ -54,8 +53,7 @@ function Bioresonance() {
       </div>
       <div
         className="acceuil-presentation-bio acceuil-presentation-content"
-        id="bio1"
-      >
+        id="bio1">
         <div className="img-container"></div>
         <div className="text-container">
           <div className="h-container">
@@ -89,8 +87,7 @@ function Bioresonance() {
       </div>
       <div
         className="acceuil-presentation-bio acceuil-presentation-content"
-        id="bio2"
-      >
+        id="bio2">
         <div className="text-container">
           <div className="h-container">
             <h2>LA BIORESONANCE</h2>

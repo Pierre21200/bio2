@@ -7,8 +7,7 @@ function Recherche() {
       <Navbar></Navbar>
       <div
         className="acceuil-presentation-rec acceuil-presentation-content"
-        id="rec"
-      >
+        id="rec">
         <div className="img-container"></div>
         <div className="text-container">
           <div className="h-container">
@@ -38,9 +37,64 @@ function Recherche() {
             Mon objectif est de localiser rapidement et recevoir des indices,
             des images ou des sons qui permettrait de le retrouver.
           </p>
-          <Link to={"/recherche-animale/rendez-vous"}>
+          {/* <Link to={"/recherche-animale/rendez-vous"}>
             <button className="button-anim">PRENDRE RENDEZ-VOUS</button>
-          </Link>{" "}
+          </Link>{" "} */}
+        </div>
+      </div>
+      <div className="acceuil-presentation-rec acceuil-presentation-content">
+        <div className="text-container">
+          <div className="h-container">
+            <h2>RECHERCHE D'ANIMAUX PERDUS</h2>
+            <h3>se pratique à distance</h3>
+            <p className="page-number" id="page-number">
+              2
+            </p>
+          </div>
+          <p>
+            J’établis un lien subtil avec lui, afin de lui transmettre des
+            messages de réconfort, d'encouragement et de sécurité. Je lui fais
+            savoir qu'il n'est pas seul et que nous faisons tout notre possible
+            pour l'aider à rentrer chez lui. <br></br>
+            <br></br>Dans le même temps, je suis également à l'écoute des
+            messages que l'animal souhaite me transmettre. Je peux recevoir des
+            informations importantes sur leur situation actuelle, leurs besoins
+            ou les obstacles auxquels ils sont confrontés. <br></br>
+            <br></br>Dans cette communication bidirectionnelle, je peux agir
+            comme un intermédiaire entre vous et votre animal perdu. Je vous
+            transmets les messages que j'ai reçus de lui, vous tenant ainsi
+            informé de son état d'esprit, de ses besoins spécifiques ou de toute
+            information pertinente pour faciliter sa localisation.
+          </p>
+        </div>
+        <div className="img-container"></div>
+      </div>
+      <div className="acceuil-presentation-rec acceuil-presentation-content">
+        <div className="img-container"></div>
+        <div className="text-container">
+          <div className="h-container">
+            <h2>RECHERCHE D'ANIMAUX PERDUS</h2>
+            <h3>se pratique à distance</h3>
+            <p className="page-number" id="page-number">
+              3
+            </p>
+          </div>
+          <p>
+            Parallèlement à la communication animale, je reste également
+            attentive aux signes et aux indices qui se présentent lors de mes
+            recherches. Les oracles que j'utilise me guident vers des pistes
+            spécifiques ou me révèlent des images qui pourraient être liées à la
+            localisation de votre animal. Je m'appuie sur mon intuition et ma
+            connexion profonde avec le royaume animal pour interpréter ces
+            indices de manière précise et efficace.<br></br>
+            <br></br> En combinant ces différentes approches intuitives et
+            énergétiques, je m'efforce de créer une méthodologie de recherche
+            complète et sensible pour ramener la joie et le soulagement dans
+            votre foyer en retrouvant votre animal.
+          </p>
+          <Link to={"/biorésonance/rendez-vous"}>
+            <button className="button-anim">PRENDRE RENDEZ-VOUS</button>
+          </Link>
         </div>
       </div>
     </div>

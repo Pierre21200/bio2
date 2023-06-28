@@ -135,7 +135,7 @@ const sendEmailToClientConfirmed = (data) => {
     to_email: data.mail,
     subject: 'Demande de rendez-vous accepté !',
     from_name: 'ENERGIE ANIMALE',
-    message: `Bonjour,\n\nVotre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé. <br></br>Voici les informations de paiement :<br></br>IBAN : FR76 1213 5003 0004 2532 6206<br></br>MME Morgane FAUCOMPRE  \n A bientôt ! \n`,
+    message: `Bonjour,\n\nVotre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé. \nVoici les informations de paiement : \nIBAN : FR76 1213 5003 0004 2532 6206\nMME Morgane FAUCOMPRE\n\nOu par Paypal avec l'adresse mail : communiquer.animaux@gmail.com \n A bientôt ! \n`,
   };
 
   emailjs.send(serviceIDtoAdmin, templateIDtoAdmin, templateParams, publicKeytoAdmin)

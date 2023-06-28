@@ -91,7 +91,6 @@ function Acceuil() {
       </div>
 
       <div className="third-sight" id="third-sight">
-        <img src={flower5} alt="flower-decoration" className="flower5" />
         <img src={flower6} alt="flower-decoration" className="flower6" />
         <div className="first-line">
           <div className="acceuil-com">

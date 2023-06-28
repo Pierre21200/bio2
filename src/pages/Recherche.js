@@ -42,7 +42,9 @@ function Recherche() {
           </Link>{" "} */}
         </div>
       </div>
-      <div className="acceuil-presentation-rec acceuil-presentation-content">
+      <div
+        className="acceuil-presentation-rec acceuil-presentation-content"
+        id="rec1">
         <div className="text-container">
           <div className="h-container">
             <h2>RECHERCHE D'ANIMAUX PERDUS</h2>
@@ -69,7 +71,9 @@ function Recherche() {
         </div>
         <div className="img-container"></div>
       </div>
-      <div className="acceuil-presentation-rec acceuil-presentation-content">
+      <div
+        className="acceuil-presentation-rec acceuil-presentation-content"
+        id="rec2">
         <div className="img-container"></div>
         <div className="text-container">
           <div className="h-container">

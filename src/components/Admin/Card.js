@@ -139,8 +139,7 @@ function Card({
         <div
           className={`card ${modalActive ? "flou" : ""} ${
             confirmed ? "1" : "2"
-          }`}
-        >
+          }`}>
           <FontAwesomeIcon
             onClick={() => handleDelete(item)}
             className="icon-delete"
@@ -153,8 +152,7 @@ function Card({
               className={` ${changingRdv ? "off-locked" : "on"}`}
               onClick={() =>
                 !changingPay && !changingRdv ? handleConfirmedRdv(item) : null
-              }
-            >
+              }>
               {changingRdv
                 ? "Informations Confirmées"
                 : "Confirmez Informations"}
@@ -162,23 +160,20 @@ function Card({
             <div
               className={` ${changingRdv ? "progression-done" : ""} ${
                 changingPay ? "" : ""
-              } progression first-progression`}
-            ></div>
+              } progression first-progression`}></div>
             <button
               className={` ${!changingRdv ? "on-locked" : ""}
             ${changingRdv && !changingPay ? "on" : ""}
             ${changingPay ? "off-locked" : ""}`}
               onClick={() =>
                 changingRdv && !changingPay ? handleConfirmedPay(item) : null
-              }
-            >
+              }>
               {changingPay ? "Paiement Confirmé" : "Confirmez Paiement"}
             </button>
             <div
               className={` ${
                 changingPay ? "progression-done" : ""
-              } progression first-progression`}
-            ></div>
+              } progression first-progression`}></div>
             <button
               className={` ${
                 changingPay && !changingPastAppointment ? "on" : ""
@@ -189,8 +184,7 @@ function Card({
                 changingRdv && changingPay
                   ? handleConfirmedPastAppointment(item)
                   : null
-              }
-            >
+              }>
               {changingPastAppointment
                 ? "Désarchivez Rendez-vous"
                 : "Archivez Rendez-vous"}
@@ -236,24 +230,22 @@ function Card({
       </div>
     );
   } else if (category === "com") {
+    console.log(item.imageUrl);
     return (
       <div>
-        {/* {modalConfirmed}
-        {modalConfirmedPaiement} */}
         <div className={`card ${modalActive ? "flou" : ""}`}>
           <FontAwesomeIcon
             onClick={() => handleDelete(item)}
             className="icon-delete"
             size="2xl"
             icon={faTrashAlt}
-          />{" "}
+          />
           <div className="card-button-container">
             <button
               className={` ${changingRdv ? "off-locked" : "on"}`}
               onClick={() =>
                 !changingPay && !changingRdv ? handleConfirmedRdv(item) : null
-              }
-            >
+              }>
               {changingRdv
                 ? "Informations Confirmées"
                 : "Confirmez Informations"}
@@ -261,23 +253,20 @@ function Card({
             <div
               className={` ${changingRdv ? "progression-done" : ""} ${
                 changingPay ? "" : ""
-              } progression first-progression`}
-            ></div>
+              } progression first-progression`}></div>
             <button
               className={` ${!changingRdv ? "on-locked" : ""}
             ${changingRdv && !changingPay ? "on" : ""}
             ${changingPay ? "off-locked" : ""}`}
               onClick={() =>
                 changingRdv && !changingPay ? handleConfirmedPay(item) : null
-              }
-            >
+              }>
               {changingPay ? "Paiement Confirmé" : "Confirmez Paiement"}
             </button>
             <div
               className={` ${
                 changingPay ? "progression-done" : ""
-              } progression first-progression`}
-            ></div>
+              } progression first-progression`}></div>
             <button
               className={` ${
                 changingPay && !changingPastAppointment ? "on" : ""
@@ -288,8 +277,7 @@ function Card({
                 changingRdv && changingPay
                   ? handleConfirmedPastAppointment(item)
                   : null
-              }
-            >
+              }>
               {changingPastAppointment
                 ? "Désarchivez Rendez-vous"
                 : "Archivez Rendez-vous"}
@@ -297,7 +285,9 @@ function Card({
           </div>
           <div className="header-card-admin">
             <div className="img-container">
-              <img src={item.imageUrl} alt=""></img>
+              <a href={item.imageUrl} download={`${item.animalName}.jpeg`}>
+                <img src={item.imageUrl} alt=""></img>
+              </a>
             </div>
             <div className="header-content">
               <div className="card-content">
@@ -345,8 +335,7 @@ function Card({
               className={` ${changingRdv ? "off-locked" : "on"}`}
               onClick={() =>
                 !changingPay && !changingRdv ? handleConfirmedRdv(item) : null
-              }
-            >
+              }>
               {changingRdv
                 ? "Informations Confirmées"
                 : "Confirmez Informations"}
@@ -354,23 +343,20 @@ function Card({
             <div
               className={` ${changingRdv ? "progression-done" : ""} ${
                 changingPay ? "" : ""
-              } progression first-progression`}
-            ></div>
+              } progression first-progression`}></div>
             <button
               className={` ${!changingRdv ? "on-locked" : ""}
             ${changingRdv && !changingPay ? "on" : ""}
             ${changingPay ? "off-locked" : ""}`}
               onClick={() =>
                 changingRdv && !changingPay ? handleConfirmedPay(item) : null
-              }
-            >
+              }>
               {changingPay ? "Paiement Confirmé" : "Confirmez Paiement"}
             </button>
             <div
               className={` ${
                 changingPay ? "progression-done" : ""
-              } progression first-progression`}
-            ></div>
+              } progression first-progression`}></div>
             <button
               className={` ${
                 changingPay && !changingPastAppointment ? "on" : ""
@@ -381,8 +367,7 @@ function Card({
                 changingRdv && changingPay
                   ? handleConfirmedPastAppointment(item)
                   : null
-              }
-            >
+              }>
               {changingPastAppointment
                 ? "Désarchivez Rendez-vous"
                 : "Archivez Rendez-vous"}
@@ -441,8 +426,7 @@ function Card({
               className={` ${changingRdv ? "off-locked" : "on"}`}
               onClick={() =>
                 !changingPay && !changingRdv ? handleConfirmedRdv(item) : null
-              }
-            >
+              }>
               {changingRdv
                 ? "Informations Confirmées"
                 : "Confirmez Informations"}
@@ -450,23 +434,20 @@ function Card({
             <div
               className={` ${changingRdv ? "progression-done" : ""} ${
                 changingPay ? "" : ""
-              } progression first-progression`}
-            ></div>
+              } progression first-progression`}></div>
             <button
               className={` ${!changingRdv ? "on-locked" : ""}
             ${changingRdv && !changingPay ? "on" : ""}
             ${changingPay ? "off-locked" : ""}`}
               onClick={() =>
                 changingRdv && !changingPay ? handleConfirmedPay(item) : null
-              }
-            >
+              }>
               {changingPay ? "Paiement Confirmé" : "Confirmez Paiement"}
             </button>
             <div
               className={` ${
                 changingPay ? "progression-done" : ""
-              } progression first-progression`}
-            ></div>
+              } progression first-progression`}></div>
             <button
               className={` ${
                 changingPay && !changingPastAppointment ? "on" : ""
@@ -477,8 +458,7 @@ function Card({
                 changingRdv && changingPay
                   ? handleConfirmedPastAppointment(item)
                   : null
-              }
-            >
+              }>
               {changingPastAppointment
                 ? "Désarchivez Rendez-vous"
                 : "Archivez Rendez-vous"}

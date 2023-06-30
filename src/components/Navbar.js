@@ -184,6 +184,7 @@ function Navbar({
         <Link to="/">
           <div onClick={() => goToAnchor("first-sight")}>ACCEUIL</div>
         </Link>
+
         <Link to="/biorésonance">
           <div>BIORESONANCE</div>
         </Link>
@@ -196,6 +197,7 @@ function Navbar({
         <Link to="/lecture-oracle">
           <div>LECTURE D'ORACLE</div>
         </Link>
+
         <Link to="/">
           <div onClick={() => goToAnchor("avis")}>AVIS</div>
         </Link>

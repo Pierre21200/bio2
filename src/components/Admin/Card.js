@@ -60,77 +60,6 @@ function Card({
     setChangingPastAppointment(!changingPastAppointment);
   }
 
-  // function handleConfirmedRdv() {
-  //   document.getElementById("modalConfirmed").style.display = "block";
-  //   setModalActive(true);
-  // }
-
-  // function handleSureRdv(item) {
-  //   document.getElementById("modalConfirmed").style.display = "none";
-  //   changeRdv(item);
-  //   setChangingRdv(!changingRdv);
-  //   setModalActive(false);
-  // }
-
-  // function handleCancelRdv() {
-  //   document.getElementById("modalConfirmed").style.display = "none";
-  //   setModalActive(false);
-  // }
-
-  // function handleConfirmedPay() {
-  //   document.getElementById("modalConfirmedPaiement").style.display = "block";
-  //   setModalActive(true);
-  // }
-
-  // function handleSurePay(item) {
-  //   document.getElementById("modalConfirmedPaiement").style.display = "none";
-  //   changePay(item);
-  //   setChangingPay(!changingPay);
-  //   setModalActive(false);
-  // }
-
-  // function handleCancelPay() {
-  //   document.getElementById("modalConfirmedPaiement").style.display = "none";
-  //   setModalActive(false);
-  // }
-
-  // function handleConfirmedPastAppointment() {
-  //   // mettre en place un modal => 'Ceci archivera le rendez-vous'
-
-  //   changePastAppointment(item);
-  //   setChangingPastAppointment(!changingPastAppointment);
-  // }
-
-  // let modalConfirmed = (
-  //   <div className="modal" id="modalConfirmed">
-  //     <p>
-  //       Attention
-  //       <br />
-  //       Le formulaire sera confirmé, un mail contenant les informations de
-  //       paiement sera envoyé au client, êtes-vous sur ?
-  //     </p>
-  //     <div className="button-container">
-  //       <button onClick={(item) => handleSureRdv(item)}>Confirmer</button>
-  //       <button onClick={(item) => handleCancelRdv(item)}>Annuler</button>
-  //     </div>
-  //   </div>
-  // );
-
-  // let modalConfirmedPaiement = (
-  //   <div className="modal" id="modalConfirmedPaiement">
-  //     <p>
-  //       Attention
-  //       <br />
-  //       Le paiement sera confirmé, un mail de confirmation de paiement sera
-  //       envoyé au client, êtes-vous sur ?
-  //     </p>
-  //     <div className="button-container">
-  //       <button onClick={(item) => handleSurePay(item)}>Confirmer</button>
-  //       <button onClick={(item) => handleCancelPay(item)}>Annuler</button>
-  //     </div>
-  //   </div>
-  // );
-
   if (category === "bio") {
     return (
       <div>
@@ -230,7 +159,6 @@ function Card({
       </div>
     );
   } else if (category === "com") {
-    console.log(item.imageUrl);
     return (
       <div>
         <div className={`card ${modalActive ? "flou" : ""}`}>
@@ -285,8 +213,8 @@ function Card({
           </div>
           <div className="header-card-admin">
             <div className="img-container">
-              <a href={item.imageUrl} download={`${item.animalName}.jpeg`}>
-                <img src={item.imageUrl} alt=""></img>
+              <a href={item.imageUrl}>
+                <img src={item.imageUrl} alt="" />
               </a>
             </div>
             <div className="header-content">
@@ -375,7 +303,9 @@ function Card({
           </div>
           <div className="header-card-admin">
             <div className="img-container">
-              <img src={item.imageUrl} alt=""></img>
+              <a href={item.imageUrl}>
+                <img src={item.imageUrl} alt=""></img>
+              </a>
             </div>
             <div className="header-content">
               <div className="card-content">

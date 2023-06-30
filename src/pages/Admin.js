@@ -239,7 +239,6 @@ function Admin() {
         setFinalDatas([]);
       }
     }
-    console.log("2");
   }, [datas, confirmed]);
 
   useEffect(() => {

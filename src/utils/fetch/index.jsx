@@ -312,8 +312,8 @@ export async function postComInfos(body, file) {
       body: formData,
     });
 
-    // sendEmailToAdmin(body, 'com');
-    // sendEmailToClient(body, 'com');
+    sendEmailToAdmin(body, 'com');
+    sendEmailToClient(body, 'com');
   } catch (e) {
     console.log(e);
   }

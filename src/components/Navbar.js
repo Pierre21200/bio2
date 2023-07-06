@@ -17,6 +17,8 @@ function Navbar({
   const [checkInfo, setCheckInfo] = useState(false);
   const [checkPay, setCheckPay] = useState(false);
   const [checkArc, setCheckArc] = useState(false);
+  const [navDrop, setNavDrop] = useState(false);
+  const [navDropSer, setNavDropServ] = useState(false);
 
   function setFilterAndCalendar(filter) {
     setFilter(filter);
@@ -33,10 +35,23 @@ function Navbar({
   }
   function handleDropdown() {
     var navbar = document.getElementById("navbar");
-    if (navbar.style.visibility === "hidden") {
+    if (navDrop === false) {
       navbar.style.visibility = "visible";
+      setNavDrop(true);
     } else {
       navbar.style.visibility = "hidden";
+      setNavDrop(false);
+    }
+  }
+
+  function handleDropdownServ() {
+    var serv = document.getElementById("services");
+    if (navDropSer === false) {
+      serv.style.visibility = "visible";
+      setNavDropServ(true);
+    } else {
+      serv.style.visibility = "hidden";
+      setNavDropServ(false);
     }
   }
 
@@ -185,17 +200,39 @@ function Navbar({
           <div onClick={() => goToAnchor("first-sight")}>ACCEUIL</div>
         </Link>
 
-        <Link to="/biorésonance">
-          <div>BIORESONANCE</div>
+        <div
+          onClick={handleDropdownServ}
+          className="navbar-serv"
+          id="navbar-serv">
+          MES SERVICES
+        </div>
+
+        <div className="services" id="services">
+          <Link to="/biorésonance">
+            <div>BIORESONANCE</div>
+          </Link>
+          <Link to="/communication-animale">
+            <div>COMMUNICATION ANIMALE</div>
+          </Link>
+          <Link to="/recherche-animale">
+            <div>RECHERCHE ANIMALE</div>
+          </Link>
+          <Link to="/lecture-oracle">
+            <div>LECTURE D'ORACLE</div>
+          </Link>
+        </div>
+
+        <Link className="toHide" to="/biorésonance">
+          <div className="toHide">BIORESONANCE</div>
         </Link>
-        <Link to="/communication-animale">
-          <div>COMMUNICATION ANIMALE</div>
+        <Link className="toHide" to="/communication-animale">
+          <div className="toHide">COMMUNICATION ANIMALE</div>
         </Link>
-        <Link to="/recherche-animale">
-          <div>RECHERCHE ANIMALE</div>
+        <Link className="toHide" to="/recherche-animale">
+          <div className="toHide">RECHERCHE ANIMALE</div>
         </Link>
-        <Link to="/lecture-oracle">
-          <div>LECTURE D'ORACLE</div>
+        <Link className="toHide" to="/lecture-oracle">
+          <div className="toHide">LECTURE D'ORACLE</div>
         </Link>
 
         <Link to="/">

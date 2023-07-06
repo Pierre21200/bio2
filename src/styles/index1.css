@@ -79,14 +79,11 @@ a {
   align-items: center;
 }
 
-
-
-
-
 .navbar-client div {
   cursor: pointer;
   transition: transform 0.3s;
 }
+
 .navbar-client div:hover {
 transform: scale(1.1);
 }
@@ -100,6 +97,40 @@ transform: scale(1.1);
   visibility: hidden;
   display: none;
 }
+
+.navbar-client h2 {
+  font-size: 15px;
+  margin: 0;
+}
+
+
+#services {
+  visibility: hidden;
+  position: absolute;
+  left: 20%;
+  top: 50px;
+  height: 100px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: var(--color-background);
+  text-align: center;
+  border: 2px solid var(--color-text);
+}
+
+#services:hover {
+  transform: none;
+}
+
+#services div:hover {
+  transform: none;
+}
+
+
+
+
+
 /* firstSIGHT */
 .first-sight-container {
   background: var(--color-background); 
@@ -540,7 +571,6 @@ margin: 0;
 
 #rdv .img-container {
   background-image: url('../utils/img/img-rdv1.webp');
-  /* background-position: 0px -200px; */
   background-size: cover;
 
 }
@@ -1385,6 +1415,10 @@ cursor: pointer;
   font-style: italic;
 }
 
+.toHide {
+  display: none;
+}
+
 @media (max-width: 1025px) {
   .cache {
     display: block;
@@ -1488,6 +1522,11 @@ cursor: pointer;
   }
   .navbar-side div{
     margin: 0 50px;
+  }
+  .toHide { display: block;}
+  
+  #navbar-serv {
+    display: none;
   }
 }
 

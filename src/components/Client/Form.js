@@ -18,7 +18,6 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import flower5 from "../../utils/img/flower5.webp";
 
 function Form({ bio, rec, ora, com }) {
   const { dataBio, dataRec, dataOra, dataCom, dates, setDates } =
@@ -90,6 +89,28 @@ function Form({ bio, rec, ora, com }) {
     }
   }
 
+  const getWeekdaysToExclude = () => {
+    const weekdaysToExclude = [];
+    const today = new Date();
+
+    for (let i = 0; i < 7; i++) {
+      const day = new Date(today);
+      day.setDate(today.getDate() + i);
+      const dayOfWeek = day.getDay();
+
+      if (
+        dayOfWeek === 1 ||
+        dayOfWeek === 2 ||
+        dayOfWeek === 4 ||
+        dayOfWeek === 5
+      ) {
+        weekdaysToExclude.push(day);
+      }
+    }
+
+    return weekdaysToExclude;
+  };
+
   const [bioInfosForm, setBioInfosForm] = useState({
     animalName: "",
     animalSpecies: "",
@@ -128,7 +149,6 @@ function Form({ bio, rec, ora, com }) {
   if (bio && !showRecap) {
     return (
       <div className="contact-bio">
-        {/* <img className="flower5" src={flower5} alt="flower"></img> */}
         <Navbar></Navbar>
         <div className="contact-presentation">
           <div className="header">
@@ -229,9 +249,9 @@ function Form({ bio, rec, ora, com }) {
                   })
                 }
                 dateFormat="dd/MM/yyyy"
-                filterDate={(date) => isWeekend(date) || isWednesday(date)}
+                // filterDate={(date) => isWeekend(date) || isWednesday(date)}
                 placeholderText="Sélectionnez une date"
-                excludeDates={dates}
+                excludeDates={[...dates, ...getWeekdaysToExclude()]}
               />
             </label>
             <label>

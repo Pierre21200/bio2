@@ -2,10 +2,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import flower1 from "../utils/img/flower1.webp";
 import flower2 from "../utils/img/flower2.webp";
 import flower3 from "../utils/img/flower3.webp";
-import flower5 from "../utils/img/fleur2.webp";
-import flower6 from "../utils/img/fleur3.webp";
+import flower5 from "../utils/img/flower5.webp";
+import flower6 from "../utils/img/flower6.webp";
+import flower7 from "../utils/img/flower7.webp";
+import flower8 from "../utils/img/flower8.webp";
+import flower9 from "../utils/img/flower9.webp";
+import flower10 from "../utils/img/flower10.webp";
+import papillon1 from "../utils/img/papillon1.webp";
+import papillon2 from "../utils/img/papillon2.webp";
 
 import avis1 from "../utils/img/avis1.webp";
 import avis2 from "../utils/img/avis2.webp";
@@ -35,6 +42,12 @@ function Acceuil() {
     <div className="acceuil">
       <Navbar></Navbar>
       <div className=" first-sight-container" id="first-sight">
+        <img
+          src={papillon1}
+          alt="papillon-decoration"
+          className="papillon1 deco"
+        />
+
         <div className="first-sight-content first-sight-left-content"></div>
         <div className="first-sight-content first-sight-right-content">
           <h2 className="hero first-text">ÉNERGIE ANIMALE</h2>
@@ -58,8 +71,8 @@ function Acceuil() {
       </div>
 
       <div className="second-sight">
-        <img src={flower2} alt="flower-decoration" className="flower2" />
-        <img src={flower3} alt="flower-decoration" className="flower3" />
+        <img src={flower1} alt="flower-decoration" className="flower1 deco" />
+        <img src={flower2} alt="flower-decoration" className="flower2 deco" />
 
         <h2 className="first-text seasons">
           VOUS AIDER A COMPRENDRE VOTRE ANIMAL
@@ -91,7 +104,11 @@ function Acceuil() {
       </div>
 
       <div className="third-sight" id="third-sight">
-        <img src={flower6} alt="flower-decoration" className="flower6" />
+        <img src={flower3} alt="flower-decoration" className="flower3 deco" />
+        <img src={flower5} alt="flower-decoration" className="flower5 deco" />
+        <img src={flower6} alt="flower-decoration" className="flower6 deco" />
+        <img src={flower7} alt="flower-decoration" className="flower7 deco" />
+        <img src={flower10} alt="flower-decoration" className="flower10 deco" />
         <div className="first-line">
           <div className="acceuil-com">
             <Link to={"/communication-animale"}>
@@ -116,7 +133,6 @@ function Acceuil() {
             </Link>
           </div>
         </div>
-
         <div className="second-line">
           <div className="acceuil-rec">
             <Link to={"/recherche-animale"}>
@@ -158,6 +174,14 @@ function Acceuil() {
 
       <div className="avis-container" id="avis">
         <div className="avis">
+          <img src={flower8} alt="flower-decoration" className="flower8 deco" />
+          <img src={flower9} alt="flower-decoration" className="flower9 deco" />
+          <img
+            src={papillon2}
+            alt="flower-decoration"
+            className="papillon2 deco"
+          />
+
           <img src={avis2} alt="poney"></img>
           <p>
             " Elle m'a aidé à mieux comprendre mon petit protégé. Il avait fort

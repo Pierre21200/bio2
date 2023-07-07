@@ -1,5 +1,10 @@
 import morgane from "../utils/img/morgane.webp";
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function About() {
   return (
@@ -10,6 +15,9 @@ function About() {
           <h2>Morgane FAUCOMPRÉ</h2>
           <p>29 ans - Assistante Vétérinaire</p>
           <p>7 ans d'expérience en Communication Animale</p>
+        </div>
+        <div className="img-morgane-container">
+          <img src={morgane} alt="Morgane Faucompré"></img>
         </div>
         <div className="about-text">
           Dans un monde où la bienveillance envers les animaux et l'amour de la
@@ -61,8 +69,16 @@ function About() {
             ce qu'ils ont à dire. »
           </span>
         </div>
-        <div className="about-pic-container">
-          {/* <img id="morgane" src={morgane} alt="moi"></img> */}
+        <div className="about-icones-reseaux">
+          <Link to={"https://www.facebook.com/ComAnimaleMorgane"}>
+            <FontAwesomeIcon icon={faFacebookF} size="4x" />
+          </Link>
+          <Link to={"https://www.instagram.com/comanimale.bioresonance/"}>
+            <FontAwesomeIcon icon={faInstagram} size="4x" />
+          </Link>
+          <Link to={"mailto:morgane.faucompre@gmail.com"}>
+            <FontAwesomeIcon icon={faEnvelope} size="4x" />
+          </Link>
         </div>
       </div>
 

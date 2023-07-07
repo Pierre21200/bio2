@@ -31,6 +31,10 @@ a {
     --color-background: #fff2eb;
   }
 
+  .email {
+    border: 2px solid var(--color-text);
+  }
+
 @font-face {
 	font-family: 'Hero';
 	src: url('../utils/font/Hero.otf') format('opentype')
@@ -295,19 +299,19 @@ font-weight: bold;
   position: absolute;
   left: -25px;
   top: 98vh;
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 .flower2 {
   position: absolute;
   right: 0;
   top: 135vh;
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 .flower3 {
   position: absolute;
-  opacity: 0.4;
+  opacity: 0.3;
   width: 200px;
   top: 1400px;
   z-index: -1000;
@@ -316,7 +320,7 @@ font-weight: bold;
 
 .flower5 {
   position: absolute;
-  opacity: 0.4;
+  opacity: 0.3;
   width: 200px;
   left: 40%;
   display: none;
@@ -326,7 +330,7 @@ font-weight: bold;
 
 .flower6 {
   position: absolute;
-  opacity: 0.4;
+  opacity: 0.3;
   width: 200px;
   left: 43%;
   z-index: -1000;
@@ -335,7 +339,7 @@ font-weight: bold;
 
 .flower7 {
   position: absolute;
-  opacity: 0.4;
+  opacity: 0.3;
   width: 200px;
   right: 20px;
   top: 2100px;
@@ -347,7 +351,7 @@ font-weight: bold;
 
 .flower10 {
   position: absolute;
-  opacity: 0.4;
+  opacity: 0.3;
   width: 200px;
   left: 50px;
   top: 2400px;
@@ -368,9 +372,9 @@ font-weight: bold;
 
 .flower8 {
   position: absolute;
-  opacity: 0.4;
+  opacity: 0.3;
   width: 200px;
-  bottom: 400px;
+  bottom: -50px;
   left: 400px;
   z-index: -1000;
 
@@ -378,10 +382,10 @@ font-weight: bold;
 
 .flower9 {
   position: absolute;
-  opacity: 0.4;
+  opacity: 0.3;
   width: 200px;
   bottom: 400px;
-  right: -600px;
+  right: -650px;
   z-index: -1000;
 
 }
@@ -389,7 +393,7 @@ font-weight: bold;
 .papillon2 {
   position: absolute;
   width: 200px;
-  opacity: 0.4;
+  opacity: 0.3;
   left: 10px;
   z-index: -1000;
 
@@ -1457,10 +1461,11 @@ cursor: pointer;
   font-family: 'Garamond';
   font-size: 25px;
   text-align: center;
+  width: 100%;
 }
 
-#morgane {
-  width: 500px;
+.img-morgane-container {
+  margin-bottom: 50px;
 }
 
 .about-text-container {
@@ -1479,7 +1484,7 @@ cursor: pointer;
 }
 
 .about h2 {
-  font-family: 'Seasons';
+  font-family: 'Garamond';
 }
 
 .about-header p {
@@ -1488,6 +1493,13 @@ cursor: pointer;
 
 .about span {
   font-style: italic;
+}
+
+.about-icones-reseaux {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
 }
 
 .toHide {
@@ -1746,6 +1758,13 @@ cursor: pointer;
   #rdv .img-container {
     background-position: -100px 0;
   }
+
+  .about-text-container {padding: 0 15px;
+
+  }
+  .img-morgane-container {
+    display: none;
+  }
 }
 
 @media (max-width: 426px) { 
@@ -1971,6 +1990,11 @@ label {
 #rdv .img-container  {
   width: 100px;
   height: 100px;
+}
+.about-icones-reseaux {
+  flex-direction: column;
+  margin-top: 50px;
+  height: 500px;
 }
 }
 

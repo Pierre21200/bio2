@@ -1,4 +1,5 @@
 import emailjs from 'emailjs-com';
+import flower5 from '../img/flower5.webp'
 
 
 const BACKEND_URL = 'https://bioback.herokuapp.com'
@@ -50,7 +51,6 @@ const publicKeytoAdmin = 'iG24iKfn71sEe52nR';
 
 // Fonction pour envoyer l'e-mail
 const sendEmailToAdmin = (data, category) => {
-  console.log(category)
   let cat = ''
   if(category === 'bio') {
     cat = 'Biorésonance'
@@ -70,7 +70,7 @@ const sendEmailToAdmin = (data, category) => {
     subject: 'Nouvelle demande de rendez-vous !',
     from_name: 'ENERGIE ANIMALE',
     to_email : 'communiquer.animaux@gmail.com',
-    message: `Bonjour,\n\nVous avez une nouvelle demande de rendez-vous pour une séance de ${cat} dans votre espace administrateur pour la date du ${date} `,
+    message: `Vous avez une nouvelle demande de rendez-vous pour une séance de ${cat} dans votre espace administrateur pour la date du ${date} `,
   };
 
   emailjs.send(serviceIDtoAdmin, templateIDtoAdmin, templateParams, publicKeytoAdmin)
@@ -97,12 +97,13 @@ const sendEmailToClient = (data, category) => {
 
   const date = convertDate(data.date)
 
+
   const templateParams = {
     to_name: data.ownerName,
     to_email: data.mail,
     subject: 'Demande de rendez-vous !',
     from_name: 'ENERGIE ANIMALE',
-    message: `Bonjour,\n\nVotre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé. Nous traitons votre demande, vous recevrez prochainement un second mail contenant les informations de paiement. Le règlement doit etre impérativement effectué avant la date de rendez-vous. \n A bientôt ! \n`,
+    message: `Votre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé. Nous traitons votre demande, vous recevrez prochainement un second mail contenant les informations de paiement. Le règlement doit etre impérativement effectué avant la date de rendez-vous. \n\n A bientôt ! \n`,
   };
 
   emailjs.send(serviceIDtoAdmin, templateIDtoAdmin, templateParams, publicKeytoAdmin)
@@ -135,7 +136,7 @@ const sendEmailToClientConfirmed = (data) => {
     to_email: data.mail,
     subject: 'Demande de rendez-vous accepté !',
     from_name: 'ENERGIE ANIMALE',
-    message: `Bonjour,\n\nVotre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé. \nVoici les informations de paiement : \nIBAN : FR76 1213 5003 0004 2532 6206\nMME Morgane FAUCOMPRE\n\nOu par Paypal avec l'adresse mail : communiquer.animaux@gmail.com \n A bientôt ! \n`,
+    message: `Votre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé. \n\nVoici les informations de paiement : \n\nIBAN : FR76 1213 5003 0004 2532 6206\nMME Morgane FAUCOMPRE\n\nOu par Paypal (https://www.paypal.com/signin) avec l'adresse mail : \ncommuniquer.animaux@gmail.com \n\n A bientôt ! \n`,
   };
 
   emailjs.send(serviceIDtoAdmin, templateIDtoAdmin, templateParams, publicKeytoAdmin)
@@ -168,7 +169,7 @@ const sendEmailToClientConfirmedPaiement = (data) => {
     to_email: data.mail,
     subject: 'Votre paiement est confirmé !',
     from_name: 'ENERGIE ANIMALE',
-    message: `Bonjour,\n\nVotre paiement pour une séance de ${cat} en date du ${date} a bien été confirmé. \n A bientôt ! \n`,
+    message: `Votre paiement pour une séance de ${cat} en date du ${date} a bien été confirmé. \n\n A bientôt ! \n`,
   };
 
   emailjs.send(serviceIDtoAdmin, templateIDtoAdmin, templateParams, publicKeytoAdmin)
@@ -244,6 +245,8 @@ export async function getAllDates(setDates) {
       },
     })
     const allDates = await response.json()
+
+    const currentDate = new Date(); // Obtenir la date actuelle
 
     const newCalendar = allDates.filter((date, index) => {
       const dateStr = new Date(date.date).toISOString();

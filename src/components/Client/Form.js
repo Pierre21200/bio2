@@ -35,12 +35,11 @@ function Form({ bio, rec, ora, com }) {
 
   // Calendar;
 
-  function isWeekend(date) {
-    return date.getDay() === 0 || date.getDay() === 6;
-  }
-
-  function isWednesday(date) {
-    return date.getDay() === 3;
+  function isFree(date) {
+    return (
+      (date.getDay() === 0 || date.getDay() === 6 || date.getDay() === 3) &&
+      date > new Date()
+    );
   }
 
   function handlePostBio(body, e) {
@@ -88,28 +87,6 @@ function Form({ bio, rec, ora, com }) {
       setWarning(true);
     }
   }
-
-  const getWeekdaysToExclude = () => {
-    const weekdaysToExclude = [];
-    const today = new Date();
-
-    for (let i = 0; i < 7; i++) {
-      const day = new Date(today);
-      day.setDate(today.getDate() + i);
-      const dayOfWeek = day.getDay();
-
-      if (
-        dayOfWeek === 1 ||
-        dayOfWeek === 2 ||
-        dayOfWeek === 4 ||
-        dayOfWeek === 5
-      ) {
-        weekdaysToExclude.push(day);
-      }
-    }
-
-    return weekdaysToExclude;
-  };
 
   const [bioInfosForm, setBioInfosForm] = useState({
     animalName: "",
@@ -249,9 +226,9 @@ function Form({ bio, rec, ora, com }) {
                   })
                 }
                 dateFormat="dd/MM/yyyy"
-                // filterDate={(date) => isWeekend(date) || isWednesday(date)}
+                filterDate={(date) => isFree(date)}
                 placeholderText="Sélectionnez une date"
-                excludeDates={[...dates, ...getWeekdaysToExclude()]}
+                excludeDates={dates}
               />
             </label>
             <label>
@@ -381,7 +358,7 @@ function Form({ bio, rec, ora, com }) {
                   })
                 }
                 dateFormat="dd/MM/yyyy"
-                filterDate={(date) => isWeekend(date) || isWednesday(date)}
+                filterDate={(date) => isFree(date)}
                 placeholderText="Sélectionnez une date"
                 excludeDates={dates}
               />
@@ -523,7 +500,7 @@ function Form({ bio, rec, ora, com }) {
                   })
                 }
                 dateFormat="dd/MM/yyyy"
-                filterDate={(date) => isWeekend(date) || isWednesday(date)}
+                filterDate={(date) => isFree(date)}
                 placeholderText="Sélectionnez une date"
                 excludeDates={dates}
               />
@@ -650,7 +627,7 @@ function Form({ bio, rec, ora, com }) {
                   })
                 }
                 dateFormat="dd/MM/yyyy"
-                filterDate={(date) => isWeekend(date) || isWednesday(date)}
+                filterDate={(date) => isFree(date)}
                 placeholderText="Sélectionnez une date"
                 excludeDates={dates}
               />

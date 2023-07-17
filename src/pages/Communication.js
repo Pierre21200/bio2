@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
 import Navbar from "../components/Navbar";
 
 function Communication() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="page-com">
       <Navbar></Navbar>
       <div
         className="acceuil-presentation-com acceuil-presentation-content"
-        id="com"
-      >
+        id="com">
         <div className="img-container"></div>
         <div className="text-container">
           <div className="h-container">
@@ -43,8 +47,7 @@ function Communication() {
       </div>
       <div
         id="com1"
-        className="acceuil-presentation-com acceuil-presentation-content"
-      >
+        className="acceuil-presentation-com acceuil-presentation-content">
         <div className="text-container">
           <div className="h-container">
             <h2>COMMUNICATION ANIMALE</h2>

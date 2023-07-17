@@ -186,6 +186,7 @@ const sendEmailToClientConfirmedPaiement = (data) => {
 
 
 export async function fetchDatas(setDataBio, setDataCom, setDataOra, setDataRec, setDatas) {
+
   const token = localStorage.getItem("authToken");
   try {
     const [bioResponse, comResponse, oraResponse, recResponse] = await Promise.all([
@@ -237,7 +238,7 @@ export async function fetchDatas(setDataBio, setDataCom, setDataOra, setDataRec,
   }
 }
 
-export async function getAllDates(setDates) {
+export async function getAllDates(setDates, setAdminDates) {
   try {
     const response = await fetch(BACKEND_URL + '/bioanimale/dates', {
       headers: {
@@ -246,7 +247,6 @@ export async function getAllDates(setDates) {
     })
     const allDates = await response.json()
 
-    const currentDate = new Date(); // Obtenir la date actuelle
 
     const newCalendar = allDates.filter((date, index) => {
       const dateStr = new Date(date.date).toISOString();
@@ -258,7 +258,37 @@ export async function getAllDates(setDates) {
     }).map((item) => new Date(item.date));
 
 
-    setDates(newCalendar)
+    const datesWithFreeFalse = allDates
+      .filter((date) => date.free === false)
+      .map((item) => new Date(item.date));
+
+      const datesWithFreeTrue = allDates
+      .filter((date) => date.free === true)
+      .map((item) => new Date(item.date));
+
+      
+
+
+    setAdminDates(datesWithFreeTrue)
+    setDates([...newCalendar, ...datesWithFreeFalse]);
+  }
+  catch (e) {
+    console.log(e)
+  }
+}
+
+
+export async function getAllDatesAdmin(setAdminDates) {
+  try {
+    const response = await fetch(BACKEND_URL + '/bioanimale/dates', {
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+    })
+    const allDates = await response.json()
+
+    setAdminDates(allDates)
+ 
   }
   catch (e) {
     console.log(e)
@@ -267,23 +297,41 @@ export async function getAllDates(setDates) {
 
 
 
+
+
 // Post
 
 
 export async function postDates(body) {
-
-  try {
+  console.log(body)
+ try {
     const response = await fetch(BACKEND_URL + "/bioanimale/dates", {
       method: 'POST', headers: {
         'Content-type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify(body)
     });
-    await response.json();
   } catch (error) {
     console.log(error);
   }
 }
+
+export async function putDates(body) {
+  console.log(body)
+  try {
+     const response = await fetch(BACKEND_URL + "/bioanimale/dates", {
+       method: 'PUT', headers: {
+         'Content-type': 'application/json;charset=utf-8',
+       },
+       body: JSON.stringify(body)
+     });
+   } catch (error) {
+     console.log(error);
+   }
+ }
+
+
+
 
 export async function postBioInfos(body) {
   try {
@@ -295,8 +343,8 @@ export async function postBioInfos(body) {
       body: JSON.stringify(body)
     });
     await response.json(); 
-    sendEmailToAdmin(body, 'bio');
-    sendEmailToClient(body, 'bio');
+    // sendEmailToAdmin(body, 'bio');
+    // sendEmailToClient(body, 'bio');
 
 
   } catch (error) {
@@ -696,6 +744,25 @@ export async function deleteDate(body) {
 
   try {
     await fetch(`http://localhost:8000/bioanimale/dates`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        "Authorization": "Bearer " + token // Ajout du token dans les en-têtes
+      },
+      body: JSON.stringify(body),
+    });
+  }
+  catch (e) {
+    console.log(e)
+  }
+
+}
+
+export async function deleteAdminDate(body) {
+  const token = localStorage.getItem("authToken");
+
+  try {
+    await fetch(`http://localhost:8000/bioanimale/admindates`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json;charset=utf-8",

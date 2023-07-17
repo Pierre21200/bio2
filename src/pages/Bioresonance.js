@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
+
 function Bioresonance() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="page-bio">
       <Navbar></Navbar>
       <div
         className="acceuil-presentation-bio acceuil-presentation-content"
         id="bio">
-        <div className="text-container">
+        <div id="page-bio" className="text-container">
           <div className="h-container">
             <h2>LA BIORESONANCE</h2>
             <h3>se pratique en présentiel (21 - Côte d'or) ou à distance</h3>

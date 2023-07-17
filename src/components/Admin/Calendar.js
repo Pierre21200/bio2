@@ -1,8 +1,22 @@
 import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import { postDates, putDates } from "../../utils/fetch";
+import { useEffect } from "react";
 
-function Calendar({ dates, handledatepicker }) {
+function Calendar({
+  dates,
+  handledatepicker,
+  adminDates,
+  setConfirmed,
+  confirmed,
+}) {
+  const [released, setRelease] = useState(true);
+  const [cancelled, setCancelled] = useState(false);
   const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState("");
+  const [adminFree, setAdminFree] = useState([]);
+  const [adminNotFree, setAdminNotFree] = useState([]);
+  const [changingDay, setChangingDay] = useState();
 
   function generateCalendar() {
     const month = date.getMonth();
@@ -47,6 +61,13 @@ function Calendar({ dates, handledatepicker }) {
     setDate(new Date(date.getFullYear(), date.getMonth() + 1, date.getDate()));
   }
 
+  useEffect(() => {
+    if (adminDates) {
+      setAdminFree(adminDates.filter((date) => date.free === true));
+      setAdminNotFree(adminDates.filter((date) => date.free === false));
+    }
+  }, [adminDates]);
+
   return (
     <div className="calendar-container">
       <div className="calendar">
@@ -77,29 +98,66 @@ function Calendar({ dates, handledatepicker }) {
                   <td key={index}>
                     {day && (
                       <span
-                        className={`${
+                        className={`date ${
                           dates.some(
                             (date) => date.getTime() === day.date.getTime()
                           )
                             ? "rdv"
-                            : null
+                            : ""
                         } ${
                           selectedDate === JSON.stringify(day.date)
                             ? "date-selected"
                             : ""
-                        }`}
+                        }
+
+                        ${
+                          day.date.getDay() === 0 ||
+                          day.date.getDay() === 3 ||
+                          day.date.getDay() === 6 ||
+                          adminFree.some(
+                            (date) =>
+                              day.date.toISOString() ===
+                              new Date(date.date).toISOString()
+                          )
+                            ? "free"
+                            : ""
+                        }
+
+                        ${
+                          adminNotFree.some(
+                            (date) =>
+                              day.date.toISOString() ===
+                              new Date(date.date).toISOString()
+                          )
+                            ? "not-free"
+                            : ""
+                        }
+
+                       
+                        
+                        `}
                         onClick={() => {
                           if (
                             dates.some(
                               (date) => date.getTime() === day.date.getTime()
                             )
                           ) {
+                            const changeDate =
+                              document.getElementById("change-date");
+                            changeDate.style.visibility = "hidden";
                             // La date correspond à une date dans dates
                             setSelectedDate(JSON.stringify(day.date));
                             handledatepicker(day);
+                          } else {
+                            handledatepicker(null);
+                            setSelectedDate(JSON.stringify(day.date));
+                            setChangingDay(day);
+                            const changeDate =
+                              document.getElementById("change-date");
+                            changeDate.style.visibility = "visible";
+                            console.log(changingDay);
                           }
-                        }}
-                      >
+                        }}>
                         {day.day}
                       </span>
                     )}
@@ -109,6 +167,53 @@ function Calendar({ dates, handledatepicker }) {
             ))}
           </tbody>
         </table>
+      </div>
+      <div id="change-date" className="change-date">
+        <p>Changer ma disponibilité pour cette date ? </p>
+        <button
+          onClick={() => {
+            if (
+              adminDates.some(
+                (date) =>
+                  changingDay.date.toISOString() ===
+                    new Date(date.date).toISOString() &&
+                  !dates.some(
+                    (date) => date.getTime() === changingDay.date.getTime()
+                  )
+              )
+            ) {
+              putDates(changingDay);
+            } else if (
+              (changingDay.date.getDay() === 0 ||
+                changingDay.date.getDay() === 3 ||
+                changingDay.date.getDay() === 6) &&
+              !dates.some(
+                (date) => date.getTime() === changingDay.date.getTime()
+              )
+            ) {
+              postDates({ changingDay, cancelled });
+            } else if (
+              !dates.some(
+                (date) => date.getTime() === changingDay.date.getTime()
+              )
+            ) {
+              postDates({ changingDay, released });
+            }
+
+            const changeDate = document.getElementById("change-date");
+            changeDate.style.visibility = "hidden";
+
+            setConfirmed(!confirmed);
+          }}>
+          Oui
+        </button>
+        <button
+          onClick={() => {
+            const changeDate = document.getElementById("change-date");
+            changeDate.style.visibility = "hidden";
+          }}>
+          Non
+        </button>
       </div>
     </div>
   );

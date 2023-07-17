@@ -222,7 +222,7 @@ function Navbar({
           </Link>
         </div>
 
-        <Link className="toHide" to="/biorésonance">
+        <Link className="toHide" to="/biorésonance#bio">
           <div className="toHide">BIORESONANCE</div>
         </Link>
         <Link className="toHide" to="/communication-animale">

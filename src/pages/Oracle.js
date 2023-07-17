@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
 import Navbar from "../components/Navbar";
 
 function Oracle() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="page-ora">
       <Navbar></Navbar>
       <div
         className="acceuil-presentation-ora acceuil-presentation-content"
-        id="ora"
-      >
+        id="ora">
         <div className="img-container"></div>
         <div className="text-container">
           <div className="h-container">
@@ -40,8 +44,7 @@ function Oracle() {
       </div>
       <div
         className="acceuil-presentation-ora acceuil-presentation-content"
-        id="ora1"
-      >
+        id="ora1">
         <div className="text-container">
           <div className="h-container">
             <h2>LA LECTURE D'ORACLE</h2>

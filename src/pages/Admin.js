@@ -2,10 +2,16 @@ import { useState, useEffect, useContext } from "react";
 import { StateContext } from "../utils/context/injex";
 import "react-datepicker/dist/react-datepicker.css";
 import Card from "../components/Admin/Card";
-import { fetchDatas, deleteInfos, deleteDate } from "../utils/fetch";
+import {
+  fetchDatas,
+  deleteInfos,
+  deleteDate,
+  getAllDates,
+  getAllDatesAdmin,
+} from "../utils/fetch";
 import Calendar from "../components/Admin/Calendar";
 import Login from "../components/Admin/Login";
-import Signup from "../components/Admin/Signup";
+// import Signup from "../components/Admin/Signup";
 import { changeRdv, changePay, changePastAppointment } from "../utils/fetch";
 
 import jwt_decode from "jwt-decode";
@@ -27,10 +33,6 @@ function Admin() {
     setDates,
   } = useContext(StateContext);
 
-  // const [changingRdv, setChangingRdv] = useState(false);
-  // const [changingPay, setChangingPay] = useState(false);
-  // const [changingPastAppointment, setChangingPastAppointment] = useState(false);
-
   const [itemToDelete, setItemToDelete] = useState(null);
   const [itemToConfirmRdv, setItemToConfirmRdv] = useState(null);
   const [itemToConfirmPay, setItemToConfirmPay] = useState(null);
@@ -44,7 +46,7 @@ function Admin() {
   const [confirmed, setConfirmed] = useState(false);
   const [filter, setFilter] = useState("all");
   const [subFilter, setSubFilter] = useState(null);
-
+  const [adminDates, setAdminDates] = useState(null);
   const [finalDatas, setFinalDatas] = useState([]);
 
   // fetchData
@@ -254,12 +256,18 @@ function Admin() {
         ...oraCalendar,
       ];
       setDates(allDates);
+      getAllDatesAdmin(setAdminDates);
     }
-  }, [dataBio, dataCom, dataRec, dataOra, setDates, auth]);
+  }, [dataBio, dataCom, dataRec, dataOra, auth]);
 
   function handledatepicker(date) {
-    setThisDate(date.date);
-    setFilter("date");
+    if (date) {
+      setThisDate(date.date);
+      setFilter("date");
+    } else {
+      setThisDate(null);
+      setFilter("calendar");
+    }
   }
 
   function convertDate(dateString) {
@@ -407,8 +415,11 @@ function Admin() {
             {showCalendar ? (
               <div className="calendar-container">
                 <Calendar
+                  setConfirmed={setConfirmed}
+                  confirmed={confirmed}
                   dates={dates}
-                  handledatepicker={handledatepicker}></Calendar>
+                  handledatepicker={handledatepicker}
+                  adminDates={adminDates}></Calendar>
               </div>
             ) : null}
 

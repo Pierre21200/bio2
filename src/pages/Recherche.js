@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
 import Navbar from "../components/Navbar";
 
 function Recherche() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="page-rec">
       <Navbar></Navbar>

@@ -28,17 +28,38 @@ function Form({ bio, rec, ora, com }) {
   const [warningMail, setWarningMail] = useState(false);
 
   const [file, setFile] = useState();
+  const [adminDates, setAdminDates] = useState([]);
 
   useEffect(() => {
-    getAllDates(setDates);
+    getAllDates(setDates, setAdminDates);
   }, [dataBio, dataCom, dataOra, dataRec, setDates]);
 
   // Calendar;
 
   function isFree(date) {
+    // Vérifier si la date est un samedi, un dimanche ou un mercredi
+    const isWeekendOrWednesday =
+      date.getDay() === 0 || date.getDay() === 6 || date.getDay() === 3;
+
+    // Vérifier si la date est postérieure à la date actuelle
+    const isFutureDate = date > new Date();
+
+    // Vérifier si la date se trouve dans adminDates
+    const isAdminDate = adminDates.some((adminDate) =>
+      isSameDay(adminDate, date)
+    );
+
+    // Combinez les résultats pour retourner true si la date satisfait l'une des conditions
     return (
-      (date.getDay() === 0 || date.getDay() === 6 || date.getDay() === 3) &&
-      date > new Date()
+      (isFutureDate && isWeekendOrWednesday) || (isFutureDate && isAdminDate)
+    );
+  }
+
+  function isSameDay(date1, date2) {
+    return (
+      date1.getDate() === date2.getDate() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getFullYear() === date2.getFullYear()
     );
   }
 
@@ -279,8 +300,6 @@ function Form({ bio, rec, ora, com }) {
   } else if (com && !showRecap) {
     return (
       <div className="contact-com">
-        {/* <img className="flower5" src={flower5} alt="flower"></img> */}
-
         <Navbar></Navbar>
 
         <div className="contact-presentation">

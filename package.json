@@ -26,6 +26,7 @@
     "react-dropzone": "^14.2.3",
     "react-router-dom": "^6.9.0",
     "react-scripts": "^5.0.1",
+    "react-scroll-to-top": "^3.0.0",
     "serve": "^14.2.0",
     "web-vitals": "^2.1.4"
   },
@@ -33,7 +34,7 @@
     "start-dev": "react-scripts start",
     "start": "serve -s build",
     "start-prod": "npm install && serve -s build",
-    "build": "CI=false react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

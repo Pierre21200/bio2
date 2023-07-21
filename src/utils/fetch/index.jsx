@@ -343,8 +343,8 @@ export async function postBioInfos(body) {
       body: JSON.stringify(body)
     });
     await response.json(); 
-    // sendEmailToAdmin(body, 'bio');
-    // sendEmailToClient(body, 'bio');
+    sendEmailToAdmin(body, 'bio');
+    sendEmailToClient(body, 'bio');
 
 
   } catch (error) {

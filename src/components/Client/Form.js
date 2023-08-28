@@ -65,12 +65,10 @@ function Form({ bio, rec, ora, com }) {
 
   function handlePostBio(body, e) {
     e.preventDefault(e);
-    if (verifForm(body) === true) {
+    if (verifForm(body) === true && warningMail === false) {
       postBioInfos(body, bio);
       postDates(body);
       setShowRecap(true);
-    } else if (verifForm(body) === "mail") {
-      setWarningMail(true);
     } else {
       setWarning(true);
     }
@@ -78,9 +76,8 @@ function Form({ bio, rec, ora, com }) {
 
   function handlePostCom(body, e) {
     e.preventDefault(e);
-    if (verifForm(body) && file) {
+    if (verifForm(body) && file && warningMail === false) {
       postDates(body);
-
       postComInfos(body, file, (com = true));
       setShowRecap(true);
     } else {
@@ -89,9 +86,8 @@ function Form({ bio, rec, ora, com }) {
   }
   function handlePostRec(body, e) {
     e.preventDefault(e);
-    if (verifForm(body) && file) {
+    if (verifForm(body) && file && warningMail === false) {
       postDates(body);
-
       postRecInfos(body, file, (rec = true));
       setShowRecap(true);
     } else {
@@ -100,12 +96,21 @@ function Form({ bio, rec, ora, com }) {
   }
   function handlePostOra(body, e) {
     e.preventDefault(e);
-    if (verifForm(body) && file) {
+    if (verifForm(body) && file && warningMail === false) {
       postDates(body);
       postOraInfos(body, file, (ora = true));
       setShowRecap(true);
     } else {
       setWarning(true);
+    }
+  }
+
+  function verifMail(mail) {
+    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    if (!emailRegex.test(mail)) {
+      setWarningMail(true);
+    } else {
+      setWarningMail(false);
     }
   }
 
@@ -229,7 +234,10 @@ function Form({ bio, rec, ora, com }) {
                     ...bioInfosForm,
                     mail: e.target.value,
                   })
-                }></input>
+                }
+                onBlur={(e) => {
+                  verifMail(e.target.value);
+                }}></input>
             </label>
           </div>
           <div className="form-line">
@@ -283,11 +291,17 @@ function Form({ bio, rec, ora, com }) {
             className={`${
               warning ? "warning" : warningMail ? "mail-warning" : "advice"
             }`}>
-            {warning
+            {warningMail
+              ? "L'adresse mail ne semble pas correcte !"
+              : warning
+              ? "Certains champs ne sont pas remplis !"
+              : "Tous les champs sont requis"}
+
+            {/* {warning
               ? "Tous les champs ne sont pas remplis"
               : warningMail
               ? "L'adresse mail ne semble pas correcte"
-              : "Tous les champs sont requis"}
+              : "Tous les champs sont requis"} */}
           </div>
           <div className="form-button-container">
             <button className="button-anim" type="submit">
@@ -394,7 +408,10 @@ function Form({ bio, rec, ora, com }) {
                     ...comInfosForm,
                     mail: e.target.value,
                   })
-                }></input>
+                }
+                onBlur={(e) => {
+                  verifMail(e.target.value);
+                }}></input>
             </label>
           </div>
           <label className="big-label">
@@ -536,7 +553,10 @@ function Form({ bio, rec, ora, com }) {
                     ...recInfosForm,
                     mail: e.target.value,
                   })
-                }></input>
+                }
+                onBlur={(e) => {
+                  verifMail(e.target.value);
+                }}></input>
             </label>
           </div>
 
@@ -663,7 +683,10 @@ function Form({ bio, rec, ora, com }) {
                     ...oraInfosForm,
                     mail: e.target.value,
                   })
-                }></input>
+                }
+                onBlur={(e) => {
+                  verifMail(e.target.value);
+                }}></input>
             </label>
           </div>
           <label className="big-label">

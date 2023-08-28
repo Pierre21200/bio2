@@ -78,7 +78,7 @@ function Form({ bio, rec, ora, com }) {
     e.preventDefault(e);
     if (verifForm(body) && file && warningMail === false) {
       postDates(body);
-      postComInfos(body, file, (com = true));
+      postComInfos(body, file, com);
       setShowRecap(true);
     } else {
       setWarning(true);
@@ -88,7 +88,7 @@ function Form({ bio, rec, ora, com }) {
     e.preventDefault(e);
     if (verifForm(body) && file && warningMail === false) {
       postDates(body);
-      postRecInfos(body, file, (rec = true));
+      postRecInfos(body, file, rec);
       setShowRecap(true);
     } else {
       setWarning(true);
@@ -98,7 +98,7 @@ function Form({ bio, rec, ora, com }) {
     e.preventDefault(e);
     if (verifForm(body) && file && warningMail === false) {
       postDates(body);
-      postOraInfos(body, file, (ora = true));
+      postOraInfos(body, file, ora);
       setShowRecap(true);
     } else {
       setWarning(true);
@@ -111,6 +111,7 @@ function Form({ bio, rec, ora, com }) {
       setWarningMail(true);
     } else {
       setWarningMail(false);
+      setWarning(false);
     }
   }
 
@@ -296,12 +297,6 @@ function Form({ bio, rec, ora, com }) {
               : warning
               ? "Certains champs ne sont pas remplis !"
               : "Tous les champs sont requis"}
-
-            {/* {warning
-              ? "Tous les champs ne sont pas remplis"
-              : warningMail
-              ? "L'adresse mail ne semble pas correcte"
-              : "Tous les champs sont requis"} */}
           </div>
           <div className="form-button-container">
             <button className="button-anim" type="submit">
@@ -346,7 +341,11 @@ function Form({ bio, rec, ora, com }) {
               onChange={(e) => setFile(e.target.files[0])}
               type="file"
               name="image"></input>
-            <div className="false-input-file">Choisir un fichier</div>
+            {file ? (
+              <div className="false-input-file-full">Fichier bien reçu</div>
+            ) : (
+              <div className="false-input-file-empty">Choisir un fichier</div>
+            )}
           </label>
           <div className="form-line">
             <label htmlFor="nom-animal">
@@ -426,8 +425,10 @@ function Form({ bio, rec, ora, com }) {
               }></textarea>
           </label>
           <div className={` ${warning ? "warning" : "advice"}`}>
-            {warning
-              ? "Tout les champs ne sont pas remplis"
+            {warningMail
+              ? "L'adresse mail ne semble pas correcte !"
+              : warning
+              ? "Certains champs ne sont pas remplis !"
               : "Tous les champs sont requis"}
           </div>{" "}
           <div className="form-button-container">
@@ -473,7 +474,11 @@ function Form({ bio, rec, ora, com }) {
                 onChange={(e) => setFile(e.target.files[0])}
                 type="file"
                 name="image"></input>
-              <div className="false-input-file">Choisir un fichier</div>
+              {file ? (
+                <div className="false-input-file-full">Fichier bien reçu</div>
+              ) : (
+                <div className="false-input-file-empty">Choisir un fichier</div>
+              )}{" "}
             </label>
 
             <label htmlFor="nom-animal">
@@ -572,8 +577,10 @@ function Form({ bio, rec, ora, com }) {
               }></textarea>
           </label>
           <div className={` ${warning ? "warning" : "advice"}`}>
-            {warning
-              ? "Tout les champs ne sont pas remplis"
+            {warningMail
+              ? "L'adresse mail ne semble pas correcte !"
+              : warning
+              ? "Certains champs ne sont pas remplis !"
               : "Tous les champs sont requis"}
           </div>
           <div className="form-button-container">
@@ -619,10 +626,13 @@ function Form({ bio, rec, ora, com }) {
               onChange={(e) => setFile(e.target.files[0])}
               type="file"
               name="image"></input>
-            <div className="false-input-file">Choisir un fichier</div>
+            {file ? (
+              <div className="false-input-file-full">Fichier bien reçu</div>
+            ) : (
+              <div className="false-input-file-empty">Choisir un fichier</div>
+            )}{" "}
           </label>
           <div className="form-line">
-            {" "}
             <label htmlFor="nom-animal">
               Nom de l'animal&nbsp;
               <input
@@ -635,7 +645,7 @@ function Form({ bio, rec, ora, com }) {
                     ...oraInfosForm,
                     animalName: e.target.value,
                   })
-                }></input>{" "}
+                }></input>
             </label>
             <label htmlFor="nom-gardien">
               Nom du gardien&nbsp;
@@ -702,8 +712,10 @@ function Form({ bio, rec, ora, com }) {
               }></textarea>
           </label>{" "}
           <div className={` ${warning ? "warning" : "advice"}`}>
-            {warning
-              ? "Tout les champs ne sont pas remplis"
+            {warningMail
+              ? "L'adresse mail ne semble pas correcte !"
+              : warning
+              ? "Certains champs ne sont pas remplis !"
               : "Tous les champs sont requis"}
           </div>
           <div className="form-button-container">

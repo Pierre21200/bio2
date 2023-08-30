@@ -3,6 +3,7 @@ import flower5 from '../img/flower5.webp'
 
 
 const BACKEND_URL = 'https://bioback.herokuapp.com'
+// const BACKEND_URL = 'http://localhost:8000'
 
 function convertDate(dateString) {
   const daysOfWeek = [
@@ -136,7 +137,7 @@ const sendEmailToClientConfirmed = (data) => {
     to_email: data.mail,
     subject: 'Demande de rendez-vous accepté !',
     from_name: 'ENERGIE ANIMALE',
-    message: `Votre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé. \n\nVoici les informations de paiement : \n\nIBAN : FR76 1213 5003 0004 2532 6206\nMME Morgane FAUCOMPRE\n\nOu par Paypal (https://www.paypal.com/signin) avec l'adresse mail : \ncommuniquer.animaux@gmail.com \n\n A bientôt ! \n`,
+    message: `Votre demande de rendez-vous pour une séance de ${cat} en date du ${date} a bien été confirmé. \n\nVoici les informations de paiement : \n\nIBAN : FR76 1213 5003 0004 2532 6206 001\nMME Morgane FAUCOMPRE\n\nOu par Paypal (https://www.paypal.com/signin) avec l'adresse mail : \ncommuniquer.animaux@gmail.com \n\n A bientôt ! \n`,
   };
 
   emailjs.send(serviceIDtoAdmin, templateIDtoAdmin, templateParams, publicKeytoAdmin)
@@ -303,7 +304,7 @@ export async function getAllDatesAdmin(setAdminDates) {
 
 
 export async function postDates(body) {
-  console.log(body)
+console.log(body)
  try {
     const response = await fetch(BACKEND_URL + "/bioanimale/dates", {
       method: 'POST', headers: {

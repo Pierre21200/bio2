@@ -204,7 +204,7 @@ function Navbar({
           onClick={handleDropdownServ}
           className="navbar-serv"
           id="navbar-serv">
-          MES SERVICES
+          MES SERVI
         </div>
 
         <div className="services" id="services">

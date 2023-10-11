@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StateContext } from "../utils/context/injex";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,6 +20,48 @@ function Navbar({
   const [navDrop, setNavDrop] = useState(false);
   const [navDropSer, setNavDropServ] = useState(false);
 
+  // Try navbar Where AM i
+
+  const cheminActuel = window.location.pathname;
+
+  const handleScroll = () => {
+    if (cheminActuel !== "/about") {
+      const elements = document.querySelectorAll("div[id]");
+      elements.forEach((element) => {
+        var titre = document.getElementById(`nav-${element.id}`);
+
+        if (titre) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top < 500 && rect.top > -700) {
+            titre.classList.add("active");
+            titre.classList.remove("desactive");
+          } else {
+            titre.classList.remove("active");
+            titre.classList.add("desactive");
+          }
+        }
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (cheminActuel === "/about") {
+      var titre = document.getElementById(`nav-about`);
+      titre.classList.remove("desactive");
+      titre.classList.add("active");
+    }
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [cheminActuel]);
+  // End Try navbar
+
+  // End try navbar h2 hover
+
   function setFilterAndCalendar(filter) {
     setFilter(filter);
     setShowCalendar(false);
@@ -33,6 +75,7 @@ function Navbar({
   function goToAnchor(anchor) {
     setAnchor(anchor);
   }
+
   function handleDropdown() {
     var navbar = document.getElementById("navbar");
     if (navDrop === false) {
@@ -196,33 +239,21 @@ function Navbar({
         <div className="navbar-dropdown" onClick={() => handleDropdown()}>
           <FontAwesomeIcon icon={faBars} />
         </div>
+        <div>{/* <img id="logo-nav" src={logo}></img> */}</div>
         <Link to="/">
-          <div onClick={() => goToAnchor("first-sight")}>ACCEUIL</div>
+          <h2 id="nav-first-sight" onClick={() => goToAnchor("first-sight")}>
+            ACCEUIL
+          </h2>
         </Link>
-
-        <div
-          onClick={handleDropdownServ}
-          className="navbar-serv"
-          id="navbar-serv">
-          MES SERVICES
-        </div>
-
-        <div className="services" id="services">
-          <Link to="/biorésonance">
-            <div>BIORESONANCE</div>
-          </Link>
-          <Link to="/communication-animale">
-            <div>COMMUNICATION ANIMALE</div>
-          </Link>
-          <Link to="/recherche-animale">
-            <div>RECHERCHE ANIMALE</div>
-          </Link>
-          <Link to="/lecture-oracle">
-            <div>LECTURE D'ORACLE</div>
-          </Link>
-        </div>
-
-        <Link className="toHide" to="/biorésonance#bio">
+        <Link to="/">
+          <h2
+            onClick={() => goToAnchor("third-sight")}
+            className="navbar-serv"
+            id="nav-third-sight">
+            MES SERVICES
+          </h2>
+        </Link>
+        {/* <Link className="toHide" to="/biorésonance#bio">
           <div className="toHide">BIORESONANCE</div>
         </Link>
         <Link className="toHide" to="/communication-animale">
@@ -233,16 +264,19 @@ function Navbar({
         </Link>
         <Link className="toHide" to="/lecture-oracle">
           <div className="toHide">LECTURE D'ORACLE</div>
-        </Link>
-
+        </Link> */}
         <Link to="/">
-          <div onClick={() => goToAnchor("avis")}>AVIS</div>
-        </Link>
+          <h2 id="nav-rdv" onClick={() => goToAnchor("rdv")}>
+            RENDEZ-VOUS
+          </h2>
+        </Link>{" "}
         <Link to="/">
-          <div onClick={() => goToAnchor("rdv")}>RENDEZ-VOUS</div>
+          <h2 id="nav-avis" onClick={() => goToAnchor("avis")}>
+            AVIS
+          </h2>
         </Link>
         <Link to="/about">
-          <div>À PROPOS</div>
+          <h2 id="nav-about">À PROPOS</h2>
         </Link>
       </div>
     );

@@ -3,7 +3,7 @@ import React, { useState, createContext } from "react";
 
 export const StateContext = createContext();
 
-export const StateProvider = ({ children }) => {
+const StateProvider = ({ children }) => {
   const [dataBio, setDataBio] = useState([]);
   const [dataRec, setDataRec] = useState([]);
   const [dataOra, setDataOra] = useState([]);
@@ -29,9 +29,10 @@ export const StateProvider = ({ children }) => {
         setDates,
         anchor,
         setAnchor,
-      }}
-    >
+      }}>
       {children}
     </StateContext.Provider>
   );
 };
+
+export default StateProvider;

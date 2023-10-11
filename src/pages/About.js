@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function About() {
   return (
-    <div className="about">
+    <div id="about" className="about">
       <Navbar></Navbar>
       <div className="about-text-container">
         <div className="about-header">

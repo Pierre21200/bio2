@@ -53,14 +53,14 @@ const publicKeytoAdmin = 'iG24iKfn71sEe52nR';
 // Fonction pour envoyer l'e-mail
 const sendEmailToAdmin = (data, category) => {
   let cat = ''
-  if(category === 'bio') {
+  if (category === 'bio') {
     cat = 'Biorésonance'
   }
-  if(category === 'com') {
+  if (category === 'com') {
     cat = 'Communication Animale'
-  } if(category === 'rec') {
+  } if (category === 'rec') {
     cat = 'Recherche Animale'
-  } if(category === 'ora') {
+  } if (category === 'ora') {
     cat = `Lecture d'oracle`
   }
 
@@ -70,7 +70,7 @@ const sendEmailToAdmin = (data, category) => {
     to_name: 'Morgane',
     subject: 'Nouvelle demande de rendez-vous !',
     from_name: 'ENERGIE ANIMALE',
-    to_email : 'communiquer.animaux@gmail.com',
+    to_email: 'communiquer.animaux@gmail.com',
     message: `Vous avez une nouvelle demande de rendez-vous pour une séance de ${cat} dans votre espace administrateur pour la date du ${date} `,
   };
 
@@ -85,14 +85,14 @@ const sendEmailToAdmin = (data, category) => {
 
 const sendEmailToClient = (data, category) => {
   let cat = ''
-  if(category === 'bio') {
+  if (category === 'bio') {
     cat = 'Biorésonance'
   }
-  if(category === 'com') {
+  if (category === 'com') {
     cat = 'Communication Animale'
-  } if(category === 'rec') {
+  } if (category === 'rec') {
     cat = 'Recherche Animale'
-  } if(category === 'ora') {
+  } if (category === 'ora') {
     cat = `Lecture d'oracle`
   }
 
@@ -118,14 +118,14 @@ const sendEmailToClient = (data, category) => {
 
 const sendEmailToClientConfirmed = (data) => {
   let cat = ''
-  if(data.category === 'bio') {
+  if (data.category === 'bio') {
     cat = 'Biorésonance'
   }
-  if(data.category === 'com') {
+  if (data.category === 'com') {
     cat = 'Communication Animale'
-  } if(data.category === 'rec') {
+  } if (data.category === 'rec') {
     cat = 'Recherche Animale'
-  } if(data.category === 'ora') {
+  } if (data.category === 'ora') {
     cat = `Lecture d'oracle`
   }
 
@@ -151,14 +151,14 @@ const sendEmailToClientConfirmed = (data) => {
 
 const sendEmailToClientConfirmedPaiement = (data) => {
   let cat = ''
-  if(data.category === 'bio') {
+  if (data.category === 'bio') {
     cat = 'Biorésonance'
   }
-  if(data.category === 'com') {
+  if (data.category === 'com') {
     cat = 'Communication Animale'
-  } if(data.category === 'rec') {
+  } if (data.category === 'rec') {
     cat = 'Recherche Animale'
-  } if(data.category === 'ora') {
+  } if (data.category === 'ora') {
     cat = `Lecture d'oracle`
   }
 
@@ -263,11 +263,11 @@ export async function getAllDates(setDates, setAdminDates) {
       .filter((date) => date.free === false)
       .map((item) => new Date(item.date));
 
-      const datesWithFreeTrue = allDates
+    const datesWithFreeTrue = allDates
       .filter((date) => date.free === true)
       .map((item) => new Date(item.date));
 
-      
+
 
 
     setAdminDates(datesWithFreeTrue)
@@ -289,7 +289,7 @@ export async function getAllDatesAdmin(setAdminDates) {
     const allDates = await response.json()
 
     setAdminDates(allDates)
- 
+
   }
   catch (e) {
     console.log(e)
@@ -304,8 +304,8 @@ export async function getAllDatesAdmin(setAdminDates) {
 
 
 export async function postDates(body) {
-console.log(body)
- try {
+  console.log(body)
+  try {
     const response = await fetch(BACKEND_URL + "/bioanimale/dates", {
       method: 'POST', headers: {
         'Content-type': 'application/json;charset=utf-8',
@@ -320,16 +320,16 @@ console.log(body)
 export async function putDates(body) {
   console.log(body)
   try {
-     const response = await fetch(BACKEND_URL + "/bioanimale/dates", {
-       method: 'PUT', headers: {
-         'Content-type': 'application/json;charset=utf-8',
-       },
-       body: JSON.stringify(body)
-     });
-   } catch (error) {
-     console.log(error);
-   }
- }
+    const response = await fetch(BACKEND_URL + "/bioanimale/dates", {
+      method: 'PUT', headers: {
+        'Content-type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(body)
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 
 
@@ -337,13 +337,13 @@ export async function putDates(body) {
 export async function postBioInfos(body) {
   try {
 
-    const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {
+    const response = await fetch(BACKEND_URL + "/bioanimale/bioinfos", {
       method: 'POST', headers: {
         'Content-type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify(body)
     });
-    await response.json(); 
+    await response.json();
     sendEmailToAdmin(body, 'bio');
     sendEmailToClient(body, 'bio');
 
@@ -359,7 +359,7 @@ export async function postComInfos(body, file) {
   Object.keys(body).forEach((key) => formData.append(key, body[key]));
 
   try {
-    await fetch(BACKEND_URL +"/bioanimale/cominfos", {
+    await fetch(BACKEND_URL + "/bioanimale/cominfos", {
       method: "POST",
       body: formData,
     });
@@ -376,9 +376,9 @@ export async function postRecInfos(body, file) {
   formData.append("image", file);
   Object.keys(body).forEach((key) => formData.append(key, body[key]));
   try {
-    await fetch(BACKEND_URL +"/bioanimale/recinfos", {
+    await fetch(BACKEND_URL + "/bioanimale/recinfos", {
       method: "POST",
-     
+
       body: formData,
     });
     console.log('infos enregistréés !')
@@ -398,9 +398,9 @@ export async function postOraInfos(body, file) {
   Object.keys(body).forEach((key) => formData.append(key, body[key]));
 
   try {
-    await fetch(BACKEND_URL +"/bioanimale/orainfos", {
+    await fetch(BACKEND_URL + "/bioanimale/orainfos", {
       method: "POST",
-     
+
       body: formData,
     });
     console.log('infos enregistréés !')
@@ -418,7 +418,7 @@ export async function changeRdv(body) {
 
   if (body.category === 'bio') {
     try {
-      const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {
+      const response = await fetch(BACKEND_URL + "/bioanimale/bioinfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -443,7 +443,7 @@ export async function changeRdv(body) {
 
   if (body.category === 'com') {
     try {
-      const response = await fetch(BACKEND_URL +"/bioanimale/cominfos", {
+      const response = await fetch(BACKEND_URL + "/bioanimale/cominfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -464,7 +464,7 @@ export async function changeRdv(body) {
     }
   } if (body.category === 'rec') {
     try {
-      const response = await fetch(BACKEND_URL +"/bioanimale/recinfos", {
+      const response = await fetch(BACKEND_URL + "/bioanimale/recinfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -489,7 +489,7 @@ export async function changeRdv(body) {
 
   if (body.category === 'ora') {
     try {
-      const response = await fetch(BACKEND_URL +"/bioanimale/orainfos", {
+      const response = await fetch(BACKEND_URL + "/bioanimale/orainfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -519,7 +519,7 @@ export async function changePay(body) {
   const data = { id: body._id, category: body.category, pay: true };
   if (body.category === 'bio') {
     try {
-      const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {
+      const response = await fetch(BACKEND_URL + "/bioanimale/bioinfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -542,7 +542,7 @@ export async function changePay(body) {
   }
   if (body.category === 'ora') {
     try {
-      const response = await fetch(BACKEND_URL +"/bioanimale/orainfos", {
+      const response = await fetch(BACKEND_URL + "/bioanimale/orainfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -564,7 +564,7 @@ export async function changePay(body) {
     }
   } if (body.category === 'com') {
     try {
-      const response = await fetch(BACKEND_URL +"/bioanimale/cominfos", {
+      const response = await fetch(BACKEND_URL + "/bioanimale/cominfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -586,7 +586,7 @@ export async function changePay(body) {
     }
   } if (body.category === 'rec') {
     try {
-      const response = await fetch(BACKEND_URL +"/bioanimale/recinfos", {
+      const response = await fetch(BACKEND_URL + "/bioanimale/recinfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -614,7 +614,7 @@ export async function changePastAppointment(body) {
   const data = { id: body._id, category: body.category, pastAppointment: true };
   if (body.category === 'bio') {
     try {
-      const response = await fetch(BACKEND_URL +"/bioanimale/bioinfos", {
+      const response = await fetch(BACKEND_URL + "/bioanimale/bioinfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -635,7 +635,7 @@ export async function changePastAppointment(body) {
   }
   if (body.category === 'ora') {
     try {
-      const response = await fetch(BACKEND_URL +"/bioanimale/orainfos", {
+      const response = await fetch(BACKEND_URL + "/bioanimale/orainfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -655,7 +655,7 @@ export async function changePastAppointment(body) {
     }
   } if (body.category === 'com') {
     try {
-      const response = await fetch(BACKEND_URL +"/bioanimale/cominfos", {
+      const response = await fetch(BACKEND_URL + "/bioanimale/cominfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -675,7 +675,7 @@ export async function changePastAppointment(body) {
     }
   } if (body.category === 'rec') {
     try {
-      const response = await fetch(BACKEND_URL +"/bioanimale/recinfos", {
+      const response = await fetch(BACKEND_URL + "/bioanimale/recinfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -697,7 +697,7 @@ export async function changePastAppointment(body) {
 }
 
 export async function deleteInfos(body) {
-  
+
   const token = localStorage.getItem("authToken");
   const data = { id: body._id, category: body.category };
   var path = ''
@@ -722,8 +722,8 @@ export async function deleteInfos(body) {
       },
       body: JSON.stringify(data),
     });
-   
-    
+
+
 
 
     if (response.ok) {
@@ -735,7 +735,7 @@ export async function deleteInfos(body) {
 
   } catch { }
 
-  
+
 }
 
 
@@ -780,7 +780,7 @@ export async function deleteAdminDate(body) {
 
 export async function signUser(body) {
   try {
-    const response = await fetch(BACKEND_URL +`/bioanimale/signup`, {
+    const response = await fetch(BACKEND_URL + `/bioanimale/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -794,7 +794,7 @@ export async function signUser(body) {
 
 export async function logUser(body, setAuth) {
   try {
-    const response = await fetch(BACKEND_URL +`/bioanimale/login`, {
+    const response = await fetch(BACKEND_URL + `/bioanimale/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -809,7 +809,7 @@ export async function logUser(body, setAuth) {
       localStorage.setItem('authToken', token);
       console.log('Token enregistré dans le localStorage');
     }
-    
+
 
   } catch (error) {
     console.log(error)

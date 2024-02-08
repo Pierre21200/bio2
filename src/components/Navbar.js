@@ -242,7 +242,7 @@ function Navbar({
         <div>{/* <img id="logo-nav" src={logo}></img> */}</div>
         <Link to="/">
           <h2 id="nav-first-sight" onClick={() => goToAnchor("first-sight")}>
-            OUI
+            ACCUEIL
           </h2>
         </Link>
         <Link to="/">

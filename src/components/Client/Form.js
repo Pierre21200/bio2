@@ -84,6 +84,7 @@ function Form({ bio, rec, ora, com }) {
       setWarning(true);
     }
   }
+
   function handlePostRec(body, e) {
     e.preventDefault(e);
     if (verifForm(body) && file && warningMail === false) {

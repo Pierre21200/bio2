@@ -302,7 +302,6 @@ export async function getAllDatesAdmin(setAdminDates) {
 
 // Post
 
-
 export async function postDates(body) {
   console.log(body)
   try {
@@ -354,19 +353,23 @@ export async function postBioInfos(body) {
 }
 
 export async function postComInfos(body, file) {
+  console.log(body, file)
   const formData = new FormData();
   formData.append("image", file);
   Object.keys(body).forEach((key) => formData.append(key, body[key]));
-
   try {
     await fetch(BACKEND_URL + "/bioanimale/cominfos", {
       method: "POST",
+      headers: {
+        'Content-type': 'application/json;charset=utf-8',
+      },
       body: formData,
     });
 
-    // sendEmailToAdmin(body, 'com');
-    // sendEmailToClient(body, 'com');
-  } catch (e) {
+    sendEmailToAdmin(body, 'com');
+    sendEmailToClient(body, 'com');
+  }
+   catch (e) {
     console.log(e);
   }
 }

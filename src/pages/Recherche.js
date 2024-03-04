@@ -101,7 +101,9 @@ function Recherche() {
             complète et sensible pour ramener la joie et le soulagement dans
             votre foyer en retrouvant votre animal.
           </p>
-          <Link to={"/recherche-animale/rendez-vous"}>
+          <Link
+            to={"/recherche-animale/rendez-vous"}
+            onClick={() => window.scrollTo(0, 0)}>
             <button className="button-anim">PRENDRE RENDEZ-VOUS</button>
           </Link>
         </div>

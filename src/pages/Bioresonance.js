@@ -116,7 +116,9 @@ function Bioresonance() {
             et pour discuter de la manière dont elle peut bénéficier à votre
             animal.
           </p>
-          <Link to={"/biorésonance/rendez-vous"}>
+          <Link
+            to={"/biorésonance/rendez-vous"}
+            onClick={() => window.scrollTo(0, 0)}>
             <button className="button-anim">PRENDRE RENDEZ-VOUS</button>
           </Link>
         </div>

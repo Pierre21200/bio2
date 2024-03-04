@@ -71,7 +71,9 @@ function Oracle() {
             communication animale car elle peut apporter d'autres informations
             que l'animal n'a pas ou ne connaît pas.
           </p>
-          <Link to={"/lecture-oracle/rendez-vous"}>
+          <Link
+            to={"/lecture-oracle/rendez-vous"}
+            onClick={() => window.scrollTo(0, 0)}>
             <button className="button-anim">PRENDRE RENDEZ-VOUS</button>
           </Link>
         </div>

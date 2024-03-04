@@ -69,7 +69,9 @@ function Communication() {
             Je propose une approche empathique en vous aidant à mieux comprendre
             votre animal de compagnie et en vous accompagnant sur ce chemin.
           </p>
-          <Link to={"/communication-animale/rendez-vous"}>
+          <Link
+            to={"/communication-animale/rendez-vous"}
+            onClick={() => window.scrollTo(0, 0)}>
             <button className="button-anim">PRENDRE RENDEZ-VOUS</button>
           </Link>
         </div>

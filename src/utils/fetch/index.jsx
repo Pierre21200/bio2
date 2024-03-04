@@ -2,8 +2,8 @@ import emailjs from 'emailjs-com';
 import flower5 from '../img/flower5.webp'
 
 
-const BACKEND_URL = 'https://bioback.herokuapp.com'
-// const BACKEND_URL = 'http://localhost:8000'
+// const BACKEND_URL = 'https://bioback.herokuapp.com'
+const BACKEND_URL = 'http://localhost:8000'
 
 function convertDate(dateString) {
   const daysOfWeek = [
@@ -303,7 +303,7 @@ export async function getAllDatesAdmin(setAdminDates) {
 // Post
 
 export async function postDates(body) {
-  console.log(body)
+ 
   try {
     const response = await fetch(BACKEND_URL + "/bioanimale/dates", {
       method: 'POST', headers: {
@@ -353,16 +353,13 @@ export async function postBioInfos(body) {
 }
 
 export async function postComInfos(body, file) {
-  console.log(body, file)
+
   const formData = new FormData();
   formData.append("image", file);
   Object.keys(body).forEach((key) => formData.append(key, body[key]));
   try {
     await fetch(BACKEND_URL + "/bioanimale/cominfos", {
       method: "POST",
-      headers: {
-        'Content-type': 'application/json;charset=utf-8',
-      },
       body: formData,
     });
 

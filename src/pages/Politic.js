@@ -1,12 +1,10 @@
 import Navbar from "../components/Navbar";
 
 function Politic() {
-  console.log("non");
   return (
     <div className="politic-container">
       <Navbar></Navbar>
       <div className="politic-text">
-        {" "}
         <h2>Politique de Confidentialité</h2>
         <p>
           Sécurité et protection des données personnelles <br />

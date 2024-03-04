@@ -204,16 +204,24 @@ function Acceuil() {
           <div className="img-container"></div>
           <div className="text-container">
             <h2>PRENDRE RENDEZ VOUS POUR UNE SEANCE DE :</h2>
-            <Link to={"/biorésonance/rendez-vous"}>
+            <Link
+              to={"/biorésonance/rendez-vous"}
+              onClick={() => window.scrollTo(0, 0)}>
               <p>BIORESONANCE</p>
             </Link>
-            <Link to={"/communication-animale/rendez-vous"}>
+            <Link
+              to={"/communication-animale/rendez-vous"}
+              onClick={() => window.scrollTo(0, 0)}>
               <p>COMMUNICATION ANIMALE</p>
             </Link>
-            <Link to={"/recherche-animale/rendez-vous"}>
+            <Link
+              to={"/recherche-animale/rendez-vous"}
+              onClick={() => window.scrollTo(0, 0)}>
               <p>RECHERCHE ANIMALE</p>
             </Link>
-            <Link to={"/lecture-oracle/rendez-vous"}>
+            <Link
+              to={"/lecture-oracle/rendez-vous"}
+              onClick={() => window.scrollTo(0, 0)}>
               <p>LECTURE D'ORACLE</p>
             </Link>
           </div>

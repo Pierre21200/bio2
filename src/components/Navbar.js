@@ -253,18 +253,6 @@ function Navbar({
             MES SERVICES
           </h2>
         </Link>
-        {/* <Link className="toHide" to="/biorésonance#bio">
-          <div className="toHide">BIORESONANCE</div>
-        </Link>
-        <Link className="toHide" to="/communication-animale">
-          <div className="toHide">COMMUNICATION ANIMALE</div>
-        </Link>
-        <Link className="toHide" to="/recherche-animale">
-          <div className="toHide">RECHERCHE ANIMALE</div>
-        </Link>
-        <Link className="toHide" to="/lecture-oracle">
-          <div className="toHide">LECTURE D'ORACLE</div>
-        </Link> */}
         <Link to="/">
           <h2 id="nav-rdv" onClick={() => goToAnchor("rdv")}>
             RENDEZ-VOUS
@@ -275,7 +263,7 @@ function Navbar({
             AVIS
           </h2>
         </Link>
-        <Link to="/about">
+        <Link to="/about" onClick={() => window.scrollTo(0, 0)}>
           <h2 id="nav-about">À PROPOS</h2>
         </Link>
       </div>
